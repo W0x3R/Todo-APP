@@ -1,1 +1,3 @@
-# TODO-APP
+# TODO-APP CREATED BY STANISLAU VYRSKI
+
+# https://w0x3r.github.io/TODO-APP/
