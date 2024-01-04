@@ -5,23 +5,23 @@
 }
 
 .container {
-	max-width: 1680px;
-	margin: 15px 20px;
+	max-width: 2000px;
+	margin: 0 auto;
 }
 .inner {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	background: aquamarine;
-	max-width: 600px;
-	margin: 0 auto;
+	margin: 25px auto 0;
+	max-width: clamp(380px, 57vw, 600px);
 	border-radius: 25px;
 	box-shadow: 7px 8px 12px 0px rgb(0 0 0 / 33%);
 
 	&__title {
 		padding-top: 10px;
 		margin-bottom: 15px;
-		font-size: 40px;
+		font-size: clamp(34px, 5vw, 40px);
 		user-select: none;
 	}
 
@@ -37,22 +37,43 @@
 		margin-bottom: 20px;
 		align-items: center;
 	}
+
 	&__label-text-input {
 		margin-bottom: 15px;
 		border-bottom: 3px solid black;
-		font-size: 20px;
+		font-size: clamp(18px, 3vw, 20px);
+		cursor: pointer;
 	}
+
 	&__text-input {
-		width: 340px;
+		width: clamp(200px, 36vw, 340px);
 		font-size: 22px;
 		border: 2px solid gold;
+		&:hover {
+			color: red;
+		}
 	}
 	&__button-input {
-		width: 100px;
+		width: clamp(60px, 13vw, 100px);
 		height: 30px;
 		border-radius: 9px;
-		font-size: 20px;
+		font-size: clamp(16px, 3vw, 20px);
 		border: none;
 		cursor: pointer;
+		box-shadow: 4px 4px 0px 0px #000;
+		transition: 0.5s;
+		@media (hover: hover) {
+			&:hover {
+				font-size: 19px;
+				box-shadow: none;
+			}
+		}
+
+		@media (hover: none) {
+			&:hover {
+				font-size: 19px;
+				box-shadow: none;
+			}
+		}
 	}
 }
