@@ -7,16 +7,25 @@
 .container {
 	max-width: 2000px;
 	margin: 0 auto;
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
 }
+
+.main {
+	flex: 1;
+	margin-top: 35px;
+}
+
 .inner {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	background: aquamarine;
-	margin: 25px auto 0;
 	max-width: clamp(380px, 57vw, 600px);
 	border-radius: 25px;
 	box-shadow: 7px 8px 12px 0px rgb(0 0 0 / 33%);
+	margin: 0 auto;
 
 	&__title {
 		padding-top: 10px;
@@ -31,13 +40,6 @@
 		align-items: center;
 	}
 
-	&__input-wrapper {
-		display: flex;
-		gap: 20px;
-		margin-bottom: 20px;
-		align-items: center;
-	}
-
 	&__label-text-input {
 		margin-bottom: 15px;
 		border-bottom: 3px solid black;
@@ -45,14 +47,23 @@
 		cursor: pointer;
 	}
 
+	&__input-wrapper {
+		display: flex;
+		gap: 20px;
+		margin-bottom: 20px;
+		align-items: center;
+	}
+
 	&__text-input {
 		width: clamp(200px, 36vw, 340px);
 		font-size: 22px;
 		border: 2px solid gold;
+
 		&:hover {
 			color: red;
 		}
 	}
+
 	&__button-input {
 		width: clamp(60px, 13vw, 100px);
 		height: 30px;
@@ -62,6 +73,7 @@
 		cursor: pointer;
 		box-shadow: 4px 4px 0px 0px #000;
 		transition: 0.5s;
+
 		@media (hover: hover) {
 			&:hover {
 				font-size: 19px;
@@ -76,4 +88,12 @@
 			}
 		}
 	}
+}
+
+.footer {
+	display: flex;
+	justify-content: center;
+	padding: 5px;
+	font-size: clamp(16px, 3vw, 24px);
+	background: linear-gradient(90deg, rgb(185 185 185), rgb(128 134 134));
 }
