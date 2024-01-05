@@ -116,11 +116,17 @@
 }
 
 .inner__list-item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 	font-size: 18px;
 	&:not(:last-of-type) {
 		margin-bottom: 12px;
 		border-bottom: 2px solid #fff;
 		padding-bottom: 5px;
+	}
+	& input:checked + label {
+		text-decoration: line-through;
 	}
 }
 
