@@ -206,8 +206,8 @@
 	display: flex;
 	justify-content: center;
 	padding: 5px;
-	font-size: clamp(15px, 3vw, 19px);
-	background: linear-gradient(90deg, rgb(185 185 185), rgb(128 134 134));
+	font-size: clamp(15px, 3vw, 21px);
+	background: linear-gradient(90deg, rgb(185 185 185 / 39%), rgb(128 134 134 / 10%));
 }
 
 .inner_delete-list {
