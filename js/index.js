@@ -4,6 +4,7 @@ const inner = document.querySelector('.inner')
 const list = document.querySelector('.inner__list');
 const error = document.querySelector('.error');
 const toggleTheme = document.querySelector('.inner_toggle-theme')
+const toggleThemeFill = document.querySelectorAll('.inner_toggle-theme path, circle')
 let todoArr = [];
 
 const showMessage = () => {
@@ -14,7 +15,7 @@ const showMessage = () => {
 			<input class = 'inner__list-checkbox' type ='checkbox' id='item_${index}' ${item.checked ? 'checked' : ''}>
 			<label for ='item_${index}'>${item.todoValue}</label>
 
-			<svg class ='inner_delete-list' version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width ='30px' height ='30px' x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><polygon   points="404.176,0 256,148.176 107.824,0 0,107.824 148.176,256 0,404.176 107.824,512 256,363.824 404.176,512 512,404.176 363.824,256 512,107.824 "/></svg>
+			<svg class ='inner_delete-list' version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width ='30px' height ='30px' x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><polygon  points="404.176,0 256,148.176 107.824,0 0,107.824 148.176,256 0,404.176 107.824,512 256,363.824 404.176,512 512,404.176 363.824,256 512,107.824 "/></svg>
 
 		</li>`;
 		list.innerHTML = listMessage
@@ -124,6 +125,7 @@ function addDarkTheme() {
 	allLi.forEach(e => e.classList.add('inner__list-item_black'))
 	innerTextInput.classList.add('inner__label-text-input_black')
 	innerListTitle.classList.add('inner__list-title_black')
+	toggleThemeFill.forEach(e => e.style.fill = '#fff')
 	localStorage.setItem(LOCAL_THEME_KEY, 'black');
 }
 
@@ -134,6 +136,7 @@ function removeDarkTheme() {
 	allLi.forEach(e => e.classList.remove('inner__list-item_black'))
 	innerTextInput.classList.remove('inner__label-text-input_black')
 	innerListTitle.classList.remove('inner__list-title_black')
+	toggleThemeFill.forEach(e => e.style.fill = '#000')
 	localStorage.setItem(LOCAL_THEME_KEY, 'light');
 }
 
