@@ -5,37 +5,59 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>TODO-APP</title>
-	<link rel="apple-touch-icon" sizes="180x180" href="./images/fav-icons/">
+	<!-- Apple Touch Icon for iOS devices -->
+	<link rel="apple-touch-icon" sizes="180x180" href="./images/fav-icons/apple-touch-icon.png">
+	<!-- Favicon for 32x32 pixel size -->
 	<link rel="icon" type="image/png" sizes="32x32" href="./images/fav-icons/favicon-32x32.png">
+	<!-- Favicon for 16x16 pixel size -->
 	<link rel="icon" type="image/png" sizes="16x16" href="./images/fav-icons/favicon-16x16.png">
+	<!-- Safari Pinned Tab Icon -->
 	<link rel="mask-icon" href="./images/fav-icons/safari-pinned-tab.svg" color="#2500ff">
+	<!-- Microsoft Tile Color -->
 	<meta name="msapplication-TileColor" content="#da532c">
+	<!-- Browser theme color -->
 	<meta name="theme-color" content="#ffffff">
+	<!-- Link to external stylesheet -->
 	<link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body class="body">
+	<!-- Main container for the entire content -->
 	<div class="container">
+		<!-- Main content section -->
 		<main class="main">
+			<!-- Inner content wrapper -->
 			<div class="inner">
+				<!-- Title of the ToDo List -->
 				<h1 class="inner__title">ToDoList</h1>
+				<!-- Form for adding tasks -->
 				<form class="inner__form">
+					<!-- Label for task input field -->
 					<label class="inner__label-text-input" for="input-text">ADD TASK</label>
+					<!-- Wrapper for task input and add button -->
 					<div class="inner__input-wrapper">
+						<!-- Input field for task description -->
 						<input class="inner__text-input" type="text" placeholder="Description" name="task-value" id="input-text">
+						<!-- Button to add the task -->
 						<button class="inner__button-input" type="submit">ADD</button>
 					</div>
+					<!-- Wrapper for the list of tasks -->
 					<div class="inner__list-wrapper">
+						<!-- Title for the task list -->
 						<h2 class="inner__list-title">TODO</h2>
+						<!-- Unordered list to display tasks -->
 						<ul class="inner__list"></ul>
 					</div>
 				</form>
 			</div>
 		</main>
+		<!-- Footer section -->
 		<footer class="footer">
+			<!-- Year and a link to GitHub profile -->
 			<p><a href="https://github.com/W0x3R" target="_blank">2024</a></p>
 		</footer>
 	</div>
+	<!-- Link to external JavaScript file -->
 	<script src="./js/index.js"></script>
 </body>
 

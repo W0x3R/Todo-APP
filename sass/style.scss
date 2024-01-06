@@ -1,9 +1,13 @@
+/* Importing normalize.css for cross-browser consistency */
 @import 'normalize';
 
+/* Styling for the body element */
 .body {
-	background: linear-gradient(90deg, rgb(207, 224, 220), rgb(160, 170, 170));
+	// background: linear-gradient(90deg, rgb(207, 224, 220), rgb(160, 170, 170));
+	// background-image: url('../images/1.jpg');
 }
 
+/* Styling for the main container */
 .container {
 	display: flex;
 	flex-direction: column;
@@ -12,12 +16,14 @@
 	min-height: 100%;
 }
 
+/* Styling for the main content section */
 .main {
 	flex: 1;
 	margin-top: 35px;
 	margin-bottom: 35px;
 }
 
+/* Styling for the inner content wrapper */
 .inner {
 	display: flex;
 	flex-direction: column;
@@ -29,26 +35,30 @@
 	border-radius: 25px;
 	box-shadow: 7px 8px 12px 0px rgb(0 0 0 / 33%);
 
+	/* Styling for the title of the ToDo list */
 	&__title {
 		padding-top: 10px;
-		margin-bottom: 15px;
+		margin-bottom: 20px;
 		font-size: clamp(34px, 5vw, 40px);
 		user-select: none;
 	}
 
+	/* Styling for the form containing task input and button */
 	&__form {
 		display: flex;
 		flex-direction: column;
 	}
 
+	/* Styling for the label of the task input field */
 	&__label-text-input {
-		margin-bottom: 15px;
+		margin-bottom: 20px;
 		border-bottom: 3px solid black;
 		font-size: clamp(18px, 3vw, 20px);
 		text-align: center;
 		cursor: pointer;
 	}
 
+	/* Styling for the wrapper containing task input and button */
 	&__input-wrapper {
 		display: flex;
 		align-items: center;
@@ -57,16 +67,20 @@
 		margin-bottom: 20px;
 	}
 
+	/* Styling for the task input field */
 	&__text-input {
 		width: clamp(200px, 36vw, 340px);
 		border: 2px solid gold;
 		font-size: 22px;
+
+		/* Styling for the error state of the input field */
 		&_error {
 			border: 3px solid red;
 			color: red;
 		}
 	}
 
+	/* Styling for the button to add a task */
 	&__button-input {
 		width: clamp(60px, 13vw, 100px);
 		height: 30px;
@@ -76,6 +90,8 @@
 		transition: 0.5s;
 		border: none;
 		cursor: pointer;
+
+		/* Styling for the button in disabled state */
 		&_disabled {
 			cursor: not-allowed;
 			background-color: #fff;
@@ -83,14 +99,8 @@
 			box-shadow: 0px 0px 0px 0px #000;
 		}
 
-		@media (hover: hover) {
-			&:hover {
-				font-size: 19px;
-				box-shadow: none;
-			}
-		}
-
-		@media (hover: none) {
+		/* Styling for the hover effect on devices supporting hover */
+		@media (hover: hover) and (hover: none) {
 			&:hover {
 				font-size: 19px;
 				box-shadow: none;
@@ -98,6 +108,7 @@
 		}
 	}
 
+	/* Styling for the title of the task list */
 	&__list-title {
 		margin-bottom: 15px;
 		border-bottom: 3px solid black;
@@ -107,31 +118,31 @@
 	}
 }
 
-.footer {
-	display: flex;
-	justify-content: center;
-	padding: 5px;
-	font-size: clamp(15px, 3vw, 19px);
-	background: linear-gradient(90deg, rgb(185 185 185), rgb(128 134 134));
-}
-
+/* Styling for each item in the task list */
 .inner__list-item {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	font-size: 18px;
+
+	/* Styling for each item except the last one */
 	&:not(:last-of-type) {
 		margin-bottom: 12px;
 		border-bottom: 2px solid #fff;
 		padding-bottom: 5px;
 	}
+
+	/* Styling for the completed task (checked checkbox) */
 	& input:checked + label {
 		text-decoration: line-through;
 	}
 }
 
+/* Styling for the checkbox in the task list */
 .inner__list-checkbox {
 	display: none;
+
+	/* Styling for the label before the checkbox */
 	& + label:before {
 		height: 20px;
 		width: 20px;
@@ -148,8 +159,25 @@
 		transition: color ease 0.3s;
 		cursor: pointer;
 	}
+
+	/* Styling for the checked state of the checkbox */
 	&:checked + label:before {
 		color: #000;
 		border-color: #000;
 	}
 }
+
+/* Styling for the footer section */
+.footer {
+	display: flex;
+	justify-content: center;
+	padding: 5px;
+	font-size: clamp(15px, 3vw, 19px);
+	background: linear-gradient(90deg, rgb(185 185 185), rgb(128 134 134));
+}
+
+svg {
+	pointer-events: auto;
+}
+
+//     background: linear-gradient(42deg, rgb(109 115 156), rgb(0 11 59));
