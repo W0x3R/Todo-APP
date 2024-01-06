@@ -3,8 +3,19 @@
 
 /* Styling for the body element */
 .body {
-	// background: linear-gradient(90deg, rgb(207, 224, 220), rgb(160, 170, 170));
-	// background-image: url('../images/1.jpg');
+	background-image: url('../images/1.jpg');
+	background-repeat: no-repeat;
+}
+
+.body_black {
+	background-image: url('../images/2.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.body_white {
+	background-image: url('../images/1.jpg');
+	background-repeat: no-repeat;
 }
 
 /* Styling for the main container */
@@ -30,10 +41,23 @@
 	align-items: center;
 	margin: 0 auto;
 	padding: 25px;
-	background: aquamarine;
+	background: #0000004a;
 	max-width: clamp(380px, 57vw, 600px);
 	border-radius: 25px;
 	box-shadow: 7px 8px 12px 0px rgb(0 0 0 / 33%);
+	border: 10px solid black;
+
+	&_black {
+		color: white;
+		border: 10px solid #fff;
+		background: rgb(0 0 0 / 64%);
+	}
+
+	&_toggle-theme {
+		position: absolute;
+		right: 20px;
+		top: 0;
+	}
 
 	/* Styling for the title of the ToDo list */
 	&__title {
@@ -56,6 +80,9 @@
 		font-size: clamp(18px, 3vw, 20px);
 		text-align: center;
 		cursor: pointer;
+		&_black {
+			border-bottom: 3px solid #fff;
+		}
 	}
 
 	/* Styling for the wrapper containing task input and button */
@@ -70,7 +97,7 @@
 	/* Styling for the task input field */
 	&__text-input {
 		width: clamp(200px, 36vw, 340px);
-		border: 2px solid gold;
+		border: 2px solid rgb(0, 0, 0);
 		font-size: 22px;
 
 		/* Styling for the error state of the input field */
@@ -100,9 +127,8 @@
 		}
 
 		/* Styling for the hover effect on devices supporting hover */
-		@media (hover: hover) and (hover: none) {
+		@media (hover: hover) {
 			&:hover {
-				font-size: 19px;
 				box-shadow: none;
 			}
 		}
@@ -115,6 +141,9 @@
 		font-size: clamp(18px, 3vw, 20px);
 		font-weight: 400;
 		text-align: center;
+		&_black {
+			border-bottom: 3px solid #fff;
+		}
 	}
 }
 
@@ -123,13 +152,18 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	font-size: 18px;
+	font-size: 20px;
 
 	/* Styling for each item except the last one */
 	&:not(:last-of-type) {
 		margin-bottom: 12px;
-		border-bottom: 2px solid #fff;
+		border-bottom: 2px solid #000;
 		padding-bottom: 5px;
+	}
+	&_black {
+		&:not(:last-of-type) {
+			border-bottom: 2px solid #fff;
+		}
 	}
 
 	/* Styling for the completed task (checked checkbox) */
@@ -150,7 +184,7 @@
 		content: '\2714';
 		color: transparent;
 		display: inline-block;
-		border: 2px solid rgb(60 62 68 / 84%);
+		border: 2px solid rgba(255, 255, 255, 0.84);
 		font-size: 20px;
 		font-weight: 900;
 		line-height: 18px;
@@ -162,7 +196,7 @@
 
 	/* Styling for the checked state of the checkbox */
 	&:checked + label:before {
-		color: #000;
+		color: #fff;
 		border-color: #000;
 	}
 }
@@ -176,8 +210,13 @@
 	background: linear-gradient(90deg, rgb(185 185 185), rgb(128 134 134));
 }
 
-svg {
-	pointer-events: auto;
+.inner_delete-list {
+	transition: all 1s;
+	&:hover {
+		transform: rotate(90deg);
+	}
 }
 
-//     background: linear-gradient(42deg, rgb(109 115 156), rgb(0 11 59));
+.inner__polygon {
+	fill: #fff;
+}

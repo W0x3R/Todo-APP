@@ -1,7 +1,9 @@
 const addTaskButton = document.querySelector('.inner__button-input');
 const inputTypeText = document.querySelector('.inner__text-input');
+const inner = document.querySelector('.inner')
 const list = document.querySelector('.inner__list');
 const error = document.querySelector('.error');
+const toggleTheme = document.querySelector('.inner_toggle-theme')
 let todoArr = [];
 
 const showMessage = () => {
@@ -11,8 +13,8 @@ const showMessage = () => {
 		<li class ='inner__list-item'>
 			<input class = 'inner__list-checkbox' type ='checkbox' id='item_${index}' ${item.checked ? 'checked' : ''}>
 			<label for ='item_${index}'>${item.todoValue}</label>
-			
-			<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width ='30px' height ='30px' x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><polygon style="fill:#E21B1B;" points="404.176,0 256,148.176 107.824,0 0,107.824 148.176,256 0,404.176 107.824,512 256,363.824 404.176,512 512,404.176 363.824,256 512,107.824 "/></svg>
+
+			<svg class ='inner_delete-list' version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width ='30px' height ='30px' x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><polygon   points="404.176,0 256,148.176 107.824,0 0,107.824 148.176,256 0,404.176 107.824,512 256,363.824 404.176,512 512,404.176 363.824,256 512,107.824 "/></svg>
 
 		</li>`;
 		list.innerHTML = listMessage
@@ -21,7 +23,7 @@ const showMessage = () => {
 }
 
 list.addEventListener('click', function (e) {
-	if (e.target.tagName === 'svg') {
+	if (e.target.tagName === 'polygon' || e.target.tagName === 'svg') {
 		const closestLi = e.target.closest('li')
 		const valueLabel = closestLi.querySelector('label').textContent;
 		const todoItemIndex = todoArr.findIndex(item => item.todoValue === valueLabel);
@@ -106,3 +108,22 @@ list.addEventListener('change', function (e) {
 });
 
 
+const polygon = document.querySelectorAll('polygon')
+const allLi = document.querySelectorAll('li')
+const innerTextInput = document.querySelector('.inner__label-text-input')
+const innerListTitle = document.querySelector('.inner__list-title')
+
+
+function setTheme() {
+	document.body.classList.toggle('body_black')
+	inner.classList.toggle('inner_black')
+	polygon.forEach(e => e.classList.toggle('inner__polygon'));
+	allLi.forEach(e => e.classList.toggle('inner__list-item_black'))
+	innerTextInput.classList.toggle('inner__label-text-input_black')
+	innerListTitle.classList.toggle('inner__list-title_black')
+}
+
+toggleTheme.addEventListener('click', function () {
+
+
+})
