@@ -46,7 +46,6 @@ if (localStorage.getItem('todo')) {
 addTaskButton.addEventListener('click', function (e) {
 	e.preventDefault()
 
-
 	if (inputTypeText.value.length === 0) {
 		handleInputErrorAdd('Error: The input field is empty.')
 		return
@@ -85,6 +84,7 @@ function handleInputErrorRemove(textContent, placeholder) {
 	addTaskButton.textContent = textContent
 	inputTypeText.setAttribute('placeholder', placeholder)
 	addTaskButton.removeAttribute('disabled')
+	inputTypeText.blur();
 }
 
 inputTypeText.addEventListener('keydown', function () {
@@ -97,15 +97,12 @@ inputTypeText.addEventListener('blur', function () {
 
 list.addEventListener('change', function (e) {
 	const idInput = e.target.getAttribute('id');
-
 	const labelFor = list.querySelector(`[for=${idInput}]`);
 	const valueLabel = labelFor.innerHTML;
-
 	const todoItem = todoArr.find(item => item.todoValue === valueLabel);
 
 	if (todoItem) {
 		todoItem.checked = !todoItem.checked;
-
 		localStorage.setItem('todo', JSON.stringify(todoArr));
 	}
 });
@@ -116,29 +113,25 @@ const allLi = document.querySelectorAll('li')
 const innerTextInput = document.querySelector('.inner__label-text-input')
 const innerListTitle = document.querySelector('.inner__list-title')
 
-
 let LOCAL_THEME_KEY = 'theme'
 
+function changeTheme(action, toggleFill, theme) {
+	document.body.classList[action]('body_dark')
+	inner.classList[action]('inner_dark')
+	polygon.forEach(e => e.classList[action]('inner__polygon'));
+	allLi.forEach(e => e.classList[action]('inner__list-item_dark'))
+	innerTextInput.classList[action]('inner__label-text-input_dark')
+	innerListTitle.classList[action]('inner__list-title_dark')
+	toggleThemeFill.forEach(e => e.style[toggleFill] = '#fff')
+	localStorage.setItem(LOCAL_THEME_KEY, theme);
+}
+
 function addDarkTheme() {
-	document.body.classList.add('body_dark')
-	inner.classList.add('inner_dark')
-	polygon.forEach(e => e.classList.add('inner__polygon'));
-	allLi.forEach(e => e.classList.add('inner__list-item_dark'))
-	innerTextInput.classList.add('inner__label-text-input_dark')
-	innerListTitle.classList.add('inner__list-title_dark')
-	toggleThemeFill.forEach(e => e.style.fill = '#fff')
-	localStorage.setItem(LOCAL_THEME_KEY, 'black');
+	changeTheme('add', '#fff', 'dark')
 }
 
 function removeDarkTheme() {
-	document.body.classList.remove('body_dark')
-	inner.classList.remove('inner_dark')
-	polygon.forEach(e => e.classList.remove('inner__polygon'));
-	allLi.forEach(e => e.classList.remove('inner__list-item_black'))
-	innerTextInput.classList.remove('inner__label-text-input_dark')
-	innerListTitle.classList.remove('inner__list-title_dark')
-	toggleThemeFill.forEach(e => e.style.fill = '#000')
-	localStorage.setItem(LOCAL_THEME_KEY, 'light');
+	changeTheme('remove', '#000', 'light')
 }
 
 toggleTheme.addEventListener('click', function () {
@@ -146,5 +139,3 @@ toggleTheme.addEventListener('click', function () {
 })
 
 localStorage.getItem(LOCAL_THEME_KEY) === 'light' ? removeDarkTheme() : addDarkTheme()
-
-
