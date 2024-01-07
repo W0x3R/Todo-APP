@@ -120,23 +120,23 @@ const innerListTitle = document.querySelector('.inner__list-title')
 let LOCAL_THEME_KEY = 'theme'
 
 function addDarkTheme() {
-	document.body.classList.add('body_black')
-	inner.classList.add('inner_black')
+	document.body.classList.add('body_dark')
+	inner.classList.add('inner_dark')
 	polygon.forEach(e => e.classList.add('inner__polygon'));
-	allLi.forEach(e => e.classList.add('inner__list-item_black'))
-	innerTextInput.classList.add('inner__label-text-input_black')
-	innerListTitle.classList.add('inner__list-title_black')
+	allLi.forEach(e => e.classList.add('inner__list-item_dark'))
+	innerTextInput.classList.add('inner__label-text-input_dark')
+	innerListTitle.classList.add('inner__list-title_dark')
 	toggleThemeFill.forEach(e => e.style.fill = '#fff')
 	localStorage.setItem(LOCAL_THEME_KEY, 'black');
 }
 
 function removeDarkTheme() {
-	document.body.classList.remove('body_black')
-	inner.classList.remove('inner_black')
+	document.body.classList.remove('body_dark')
+	inner.classList.remove('inner_dark')
 	polygon.forEach(e => e.classList.remove('inner__polygon'));
 	allLi.forEach(e => e.classList.remove('inner__list-item_black'))
-	innerTextInput.classList.remove('inner__label-text-input_black')
-	innerListTitle.classList.remove('inner__list-title_black')
+	innerTextInput.classList.remove('inner__label-text-input_dark')
+	innerListTitle.classList.remove('inner__list-title_dark')
 	toggleThemeFill.forEach(e => e.style.fill = '#000')
 	localStorage.setItem(LOCAL_THEME_KEY, 'light');
 }
