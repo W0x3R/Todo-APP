@@ -51,7 +51,7 @@ addTaskButton.addEventListener('click', function (e) {
 		return
 	}
 
-	if (todoArr.some(item => item.todoValue === inputTypeText.value)) {
+	if (todoArr.some(item => item.todoValue === inputTypeText.value.trim())) {
 		inputTypeText.focus()
 		inputTypeText.setAttribute('placeholder', 'Error: This value already exists')
 		inputTypeText.value = ''
@@ -84,7 +84,6 @@ function handleInputErrorRemove(textContent, placeholder) {
 	addTaskButton.textContent = textContent
 	inputTypeText.setAttribute('placeholder', placeholder)
 	addTaskButton.removeAttribute('disabled')
-	inputTypeText.blur();
 }
 
 inputTypeText.addEventListener('keydown', function () {
