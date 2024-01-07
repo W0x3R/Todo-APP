@@ -4,7 +4,9 @@ const inner = document.querySelector('.inner')
 const list = document.querySelector('.inner__list');
 const error = document.querySelector('.error');
 const toggleTheme = document.querySelector('.inner_toggle-theme')
-const toggleThemeFill = document.querySelectorAll('.inner_toggle-theme path, circle')
+const toggleThemeFill = document.querySelectorAll('.inner_toggle-theme path');
+const footerText = document.querySelector('.footer__text')
+
 let todoArr = [];
 
 const showMessage = () => {
@@ -111,17 +113,24 @@ const polygon = document.querySelectorAll('polygon')
 const allLi = document.querySelectorAll('li')
 const innerTextInput = document.querySelector('.inner__label-text-input')
 const innerListTitle = document.querySelector('.inner__list-title')
+const innerButtonUpRect = document.querySelector('.inner_button-up-rect')
+const innerButtonUpPath = document.querySelector('.inner_button-up-path')
+const innerButtonUpPolygon = document.querySelector('.inner_button-up-polygon')
 
 let LOCAL_THEME_KEY = 'theme'
 
 function changeTheme(action, toggleFill, theme) {
 	document.body.classList[action]('body_dark')
 	inner.classList[action]('inner_dark')
+	footerText.classList[action]('footer__text_dark')
 	polygon.forEach(e => e.classList[action]('inner__polygon'));
-	allLi.forEach(e => e.classList[action]('inner__list-item_dark'))
+	allLi.forEach(e => e.classList[action]('inner__list-item_dark'));
 	innerTextInput.classList[action]('inner__label-text-input_dark')
 	innerListTitle.classList[action]('inner__list-title_dark')
-	toggleThemeFill.forEach(e => e.style[toggleFill] = '#fff')
+	innerButtonUpRect.classList[action]('inner_button-up-rect-dark')
+	innerButtonUpPath.classList[action]('inner_button-up-path-dark')
+	innerButtonUpPolygon.classList[action]('inner_button-up-polygon-dark')
+	toggleThemeFill.forEach(e => e.style.fill = toggleFill)
 	localStorage.setItem(LOCAL_THEME_KEY, theme);
 }
 
@@ -138,3 +147,29 @@ toggleTheme.addEventListener('click', function () {
 })
 
 localStorage.getItem(LOCAL_THEME_KEY) === 'light' ? removeDarkTheme() : addDarkTheme()
+
+const btnUp = document.querySelector('.inner_button-up')
+
+
+btnUp.addEventListener('click', function () {
+	window.scrollTo(0, 0)
+})
+
+window.addEventListener('scroll', function () {
+	console.log(this.pageYOffset);
+	if (this.pageYOffset >= 232) {
+		btnUp.style.display = 'block'
+	}
+	else {
+		btnUp.style.display = 'none'
+	}
+})
+
+window.addEventListener('resize', function () {
+	const windowCenter = this.innerWidth
+	const computedStyle = parseFloat(window.getComputedStyle(inner).width);
+	const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
+
+	btnUp.style.right = (windowCenter / 2) - scrollBarWidth - btnUp.getBoundingClientRect().width / 2
+
+})

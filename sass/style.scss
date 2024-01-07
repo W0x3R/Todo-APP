@@ -8,7 +8,7 @@
 
 	&_dark {
 		background-image: url('../images/2.jpg');
-		background-repeat: no-repeat;
+		background-repeat: repeat;
 		background-size: cover;
 
 		@media screen and (max-width: 972px) {
@@ -53,7 +53,7 @@
 	&_dark {
 		color: white;
 		border: 10px solid #fff;
-		background: rgb(0 0 0 / 68%);
+		background: rgb(117 117 117 / 95%);
 	}
 
 	&_toggle-theme {
@@ -231,6 +231,39 @@
 	padding: 5px;
 	font-size: clamp(15px, 3vw, 21px);
 	background: linear-gradient(90deg, rgb(185 185 185 / 39%), rgb(128 134 134 / 10%));
+	&__text_dark {
+		color: white;
+	}
 }
 
 @import 'adaptive';
+
+.inner_button-up {
+	display: none;
+	width: 40px;
+	position: fixed;
+	bottom: 30px;
+	right: calc(50% - 20px);
+	fill: white;
+}
+
+.inner_button-up-rect {
+	fill: #000;
+	&-dark {
+		fill: #fff;
+	}
+}
+
+.inner_button-up-path {
+	fill: #fff;
+	&-dark {
+		fill: #000;
+	}
+}
+
+.inner_button-up-polygon {
+	fill: #fff;
+	&-dark {
+		fill: #000;
+	}
+}
