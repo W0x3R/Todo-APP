@@ -3,8 +3,9 @@
 
 /* Styling for the body element */
 .body {
-	background-image: url('../images/1.jpg');
-	background-repeat: no-repeat;
+	background-image: url('../images/11.jpg');
+	background-repeat: repeat;
+	background-size: cover;
 
 	/* Styling for the body element with dark theme */
 	&_theme-dark {
@@ -37,8 +38,8 @@
 	align-items: center;
 	margin: 0 auto;
 	padding: clamp(15px, 3vw, 25px);
-	background: #0000004a;
-	max-width: clamp(335px, 57vw, 600px);
+	background: rgb(255 255 255 / 66%);
+	max-width: clamp(300px, 57vw, 650px);
 	border-radius: 25px;
 	box-shadow: 7px 8px 12px 0px rgb(0 0 0 / 33%);
 	border: 10px solid black;
@@ -69,11 +70,13 @@
 	&__form {
 		display: flex;
 		flex-direction: column;
+		width: clamp(230px, 47vw, 530px);
 	}
 
 	/* Styling for the label of the task input field */
 	&__label-text-input {
 		margin-bottom: 20px;
+		padding-bottom: 5px;
 		border-bottom: 3px solid black;
 		font-size: clamp(18px, 3vw, 20px);
 		text-align: center;
@@ -96,7 +99,7 @@
 
 	/* Styling for the task input field */
 	&__text-input {
-		width: clamp(180px, 36vw, 340px);
+		width: clamp(180px, 36vw, 405px);
 		height: clamp(25px, 5vw, 30px);
 		border: 2px solid rgb(0, 0, 0);
 		font-size: clamp(20px, 4vw, 22px);
@@ -114,7 +117,7 @@
 
 	/* Styling for the button to add a task */
 	&__button-input {
-		width: clamp(60px, 13vw, 100px);
+		width: clamp(60px, 11vw, 105px);
 		height: clamp(21px, 4vw, 28px);
 		border-radius: 4px;
 		font-size: clamp(14px, 3vw, 20px);
@@ -139,10 +142,12 @@
 	/* Styling for the title of the task list */
 	&__list-title {
 		margin-bottom: 15px;
+		padding-bottom: 5px;
 		border-bottom: 3px solid black;
 		font-size: clamp(18px, 3vw, 20px);
 		font-weight: 400;
 		text-align: center;
+		user-select: none;
 
 		/* Styling for the title of the task list with dark theme */
 		&_theme-dark {
@@ -156,6 +161,8 @@
 		justify-content: space-between;
 		align-items: center;
 		font-size: clamp(16px, 4vw, 20px);
+		overflow-wrap: anywhere;
+		position: relative;
 
 		/* Styling for each item except the last one */
 		&:not(:last-of-type) {
@@ -176,6 +183,9 @@
 		}
 	}
 
+	&__list-label {
+		margin-right: 30px;
+	}
 	&__list-checkbox {
 		display: none;
 
@@ -200,15 +210,17 @@
 
 		/* Styling for the checked state of the checkbox */
 		&:checked + label:before {
-			color: #fff;
+			color: #000;
 			border-color: #000;
 		}
 	}
 	/* Styling for the delete task button */
 	&_delete-list {
 		transition: all 1s;
-		width: clamp(23px, 4vw, 30px);
+		width: clamp(20px, 4vw, 25px);
 		height: clamp(23px, 4vw, 30px);
+		position: absolute;
+		right: 0;
 
 		&:hover {
 			transform: rotate(90deg);
