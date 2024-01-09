@@ -3,7 +3,7 @@
 
 /* Styling for the body element */
 .body {
-	&_dark {
+	&_theme-dark {
 		@media screen and (max-width: 972px) {
 			background-size: auto;
 		}

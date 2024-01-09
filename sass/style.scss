@@ -6,14 +6,11 @@
 	background-image: url('../images/1.jpg');
 	background-repeat: no-repeat;
 
-	&_dark {
+	/* Styling for the body element with dark theme */
+	&_theme-dark {
 		background-image: url('../images/2.jpg');
 		background-repeat: repeat;
 		background-size: cover;
-
-		@media screen and (max-width: 972px) {
-			background-size: auto;
-		}
 	}
 }
 
@@ -46,28 +43,18 @@
 	box-shadow: 7px 8px 12px 0px rgb(0 0 0 / 33%);
 	border: 10px solid black;
 
-	@media screen and (max-width: 650px) {
-		position: relative;
-	}
-
-	&_dark {
+	/* Styling for the inner content wrapper width dark theme */
+	&_theme-dark {
 		color: white;
 		border: 10px solid #fff;
 		background: rgb(117 117 117 / 95%);
 	}
 
+	/* Styling for the button that toggle theme */
 	&_toggle-theme {
 		position: absolute;
 		right: 30px;
 		top: 25px;
-
-		@media screen and (max-width: 650px) {
-			position: absolute;
-			right: 12px;
-			top: 12px;
-			width: 35px;
-			height: 35px;
-		}
 	}
 
 	/* Styling for the title of the ToDo list */
@@ -92,7 +79,8 @@
 		text-align: center;
 		cursor: pointer;
 
-		&_dark {
+		/* Styling for the label of the task input field width dark theme */
+		&_theme-dark {
 			border-bottom: 3px solid #fff;
 		}
 	}
@@ -155,10 +143,14 @@
 		font-size: clamp(18px, 3vw, 20px);
 		font-weight: 400;
 		text-align: center;
-		&_dark {
+
+		/* Styling for the title of the task list with dark theme */
+		&_theme-dark {
 			border-bottom: 3px solid #fff;
 		}
 	}
+
+	/* Styling for the list items of the task */
 	&__list-item {
 		display: flex;
 		justify-content: space-between;
@@ -171,7 +163,8 @@
 			border-bottom: 2px solid #000;
 			padding-bottom: 5px;
 		}
-		&_black {
+		/* Styling for each item except the last one with dark theme */
+		&_theme-dark {
 			&:not(:last-of-type) {
 				border-bottom: 2px solid #fff;
 			}
@@ -211,16 +204,52 @@
 			border-color: #000;
 		}
 	}
+	/* Styling for the delete task button */
 	&_delete-list {
 		transition: all 1s;
 		width: clamp(23px, 4vw, 30px);
 		height: clamp(23px, 4vw, 30px);
+
 		&:hover {
 			transform: rotate(90deg);
 		}
+
+		&__polygon {
+			fill: #fff;
+		}
 	}
-	&__polygon {
-		fill: #fff;
+
+	/* Styling for the button up */
+	&_button-up {
+		display: none;
+		width: 40px;
+		position: fixed;
+		bottom: 35px;
+		right: calc(50% - 20px);
+		fill: white;
+
+		&-rect {
+			fill: #000;
+
+			&_theme-dark {
+				fill: #fff;
+			}
+		}
+
+		&-path {
+			fill: #fff;
+
+			&_theme-dark {
+				fill: #000;
+			}
+		}
+		&-polygon {
+			fill: #fff;
+
+			&_theme-dark {
+				fill: #000;
+			}
+		}
 	}
 }
 
@@ -231,39 +260,11 @@
 	padding: 5px;
 	font-size: clamp(15px, 3vw, 21px);
 	background: linear-gradient(90deg, rgb(185 185 185 / 39%), rgb(128 134 134 / 10%));
-	&__text_dark {
+
+	/* Styling for the footer section with dark theme */
+	&__text_theme-dark {
 		color: white;
 	}
 }
 
 @import 'adaptive';
-
-.inner_button-up {
-	display: none;
-	width: 40px;
-	position: fixed;
-	bottom: 35px;
-	right: calc(50% - 20px);
-	fill: white;
-}
-
-.inner_button-up-rect {
-	fill: #000;
-	&-dark {
-		fill: #fff;
-	}
-}
-
-.inner_button-up-path {
-	fill: #fff;
-	&-dark {
-		fill: #000;
-	}
-}
-
-.inner_button-up-polygon {
-	fill: #fff;
-	&-dark {
-		fill: #000;
-	}
-}

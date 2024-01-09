@@ -119,16 +119,16 @@ const innerButtonUpPolygon = document.querySelector('.inner_button-up-polygon')
 let LOCAL_THEME_KEY = 'theme'
 
 function changeTheme(action, toggleFill, theme) {
-	document.body.classList[action]('body_dark')
-	inner.classList[action]('inner_dark')
-	footerText.classList[action]('footer__text_dark')
-	polygon.forEach(e => e.classList[action]('inner__polygon'));
-	allLi.forEach(e => e.classList[action]('inner__list-item_dark'));
-	innerTextInput.classList[action]('inner__label-text-input_dark')
-	innerListTitle.classList[action]('inner__list-title_dark')
-	innerButtonUpRect.classList[action]('inner_button-up-rect-dark')
-	innerButtonUpPath.classList[action]('inner_button-up-path-dark')
-	innerButtonUpPolygon.classList[action]('inner_button-up-polygon-dark')
+	document.body.classList[action]('body_theme-dark')
+	inner.classList[action]('inner_theme-dark')
+	footerText.classList[action]('footer__text_theme-dark')
+	polygon.forEach(e => e.classList[action]('inner_delete-list__polygon'));
+	allLi.forEach(e => e.classList[action]('inner__list-item_theme-dark'));
+	innerTextInput.classList[action]('inner__label-text-input_theme-dark')
+	innerListTitle.classList[action]('inner__list-title_theme-dark')
+	innerButtonUpRect.classList[action]('inner_button-up-rect_theme-dark')
+	innerButtonUpPath.classList[action]('inner_button-up-path_theme-dark')
+	innerButtonUpPolygon.classList[action]('inner_button-up-polygon_theme-dark')
 	toggleThemeFill.forEach(e => e.style.fill = toggleFill)
 	localStorage.setItem(LOCAL_THEME_KEY, theme);
 }
