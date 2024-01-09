@@ -25,7 +25,6 @@ const showMessage = () => {
 	})
 }
 
-
 list.addEventListener('click', function (e) {
 	if (e.target.tagName === 'polygon' || e.target.tagName === 'svg') {
 		const closestLi = e.target.closest('li')
@@ -156,8 +155,8 @@ btnUp.addEventListener('click', function () {
 })
 
 window.addEventListener('scroll', function () {
-	console.log(this.pageYOffset);
-	if (this.pageYOffset >= 232) {
+	console.log(this.scrollY);
+	if (this.scrollY >= 232) {
 		btnUp.style.display = 'block'
 	}
 	else {
@@ -167,9 +166,6 @@ window.addEventListener('scroll', function () {
 
 window.addEventListener('resize', function () {
 	const windowCenter = this.innerWidth
-	const computedStyle = parseFloat(window.getComputedStyle(inner).width);
 	const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
-
 	btnUp.style.right = (windowCenter / 2) - scrollBarWidth - btnUp.getBoundingClientRect().width / 2
-
 })
