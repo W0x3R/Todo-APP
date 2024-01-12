@@ -9,7 +9,6 @@ const footerText = document.querySelector('.footer__text')
 
 let todoArr = [];
 
-
 const showMessage = () => {
 	let listMessage = ''
 	todoArr.forEach((item, index) => {
@@ -26,6 +25,7 @@ const showMessage = () => {
 	})
 }
 
+
 list.addEventListener('click', function (e) {
 	if (e.target.tagName === 'polygon' || e.target.tagName === 'svg') {
 		const closestLi = e.target.closest('li')
@@ -39,6 +39,13 @@ list.addEventListener('click', function (e) {
 		}
 	}
 })
+
+function checkingRepeatValue() {
+	inputTypeText.focus()
+	inputTypeText.setAttribute('placeholder', 'Error: This value already exists')
+	inputTypeText.classList.add('inner__text-input_error');
+	inputTypeText.value = ''
+}
 
 if (localStorage.getItem('todo')) {
 	todoArr = JSON.parse(localStorage.getItem('todo'))
@@ -54,9 +61,7 @@ addTaskButton.addEventListener('click', function (e) {
 	}
 
 	if (todoArr.some(item => item.todoValue === inputTypeText.value.trim())) {
-		inputTypeText.focus()
-		inputTypeText.setAttribute('placeholder', 'Error: This value already exists')
-		inputTypeText.value = ''
+		checkingRepeatValue()
 		return;
 	}
 
@@ -64,8 +69,6 @@ addTaskButton.addEventListener('click', function (e) {
 		todoValue: inputTypeText.value,
 		checked: false,
 	}
-	console.log(todoObj);
-	console.log(todoArr);
 
 	todoArr.push(todoObj)
 	showMessage()
@@ -110,10 +113,9 @@ list.addEventListener('change', function (e) {
 	}
 });
 
-
 const polygon = document.querySelectorAll('polygon')
 const allLi = document.querySelectorAll('li')
-const innerTextInput = document.querySelector('.inner__label-text-input')
+const labelForTextInput = document.querySelector('.inner__label-text-input')
 const innerListTitle = document.querySelector('.inner__list-title')
 const innerButtonUpRect = document.querySelector('.inner_button-up-rect')
 const innerButtonUpPath = document.querySelector('.inner_button-up-path')
@@ -127,7 +129,7 @@ function changeTheme(action, toggleFill, theme) {
 	footerText.classList[action]('footer__text_theme-dark')
 	polygon.forEach(e => e.classList[action]('inner_delete-list__polygon'));
 	allLi.forEach(e => e.classList[action]('inner__list-item_theme-dark'));
-	innerTextInput.classList[action]('inner__label-text-input_theme-dark')
+	labelForTextInput.classList[action]('inner__label-text-input_theme-dark')
 	innerListTitle.classList[action]('inner__list-title_theme-dark')
 	innerButtonUpRect.classList[action]('inner_button-up-rect_theme-dark')
 	innerButtonUpPath.classList[action]('inner_button-up-path_theme-dark')
@@ -154,7 +156,6 @@ const btnUp = document.querySelector('.inner_button-up')
 
 btnUp.addEventListener('click', function () {
 	window.scrollTo(0, 0)
-
 })
 
 window.addEventListener('scroll', function () {
@@ -166,8 +167,14 @@ window.addEventListener('scroll', function () {
 	}
 })
 
-window.addEventListener('resize', function () {
-	const windowCenter = this.innerWidth
+function centredButtonUp() {
+	const windowCenter = btnUp.innerWidth
 	const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
 	btnUp.style.right = (windowCenter / 2) - scrollBarWidth - btnUp.getBoundingClientRect().width / 2
+}
+
+window.addEventListener('resize', centredButtonUp)
+
+window.addEventListener('keydown', function () {
+	inputTypeText.focus()
 })

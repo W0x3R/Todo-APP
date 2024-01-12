@@ -104,6 +104,7 @@
 		font-size: clamp(20px, 4vw, 22px);
 		border: 1px solid grey;
 		border-radius: 5px;
+
 		&:focus {
 			outline: medium solid black;
 		}
@@ -111,9 +112,11 @@
 		/* Styling for the error state of the input field */
 		&_error {
 			border: 0;
+
 			&:focus {
 				outline: medium solid red;
 			}
+
 			&::placeholder {
 				color: red;
 			}
@@ -175,6 +178,7 @@
 			border-bottom: 2px solid #000;
 			padding-bottom: 5px;
 		}
+
 		/* Styling for each item except the last one with dark theme */
 		&_theme-dark {
 			&:not(:last-of-type) {
@@ -192,6 +196,7 @@
 		margin-right: 30px;
 		display: flex;
 	}
+
 	&__list-checkbox {
 		display: none;
 
@@ -220,6 +225,7 @@
 			border-color: #000;
 		}
 	}
+
 	/* Styling for the delete task button */
 	&_delete-list {
 		transition: all 1s;
