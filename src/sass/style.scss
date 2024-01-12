@@ -43,6 +43,7 @@
 	border-radius: 25px;
 	box-shadow: 7px 8px 12px 0px rgb(0 0 0 / 33%);
 	border: 10px solid black;
+	min-height: 70vh;
 
 	/* Styling for the inner content wrapper width dark theme */
 	&_theme-dark {
@@ -112,6 +113,7 @@
 		/* Styling for the error state of the input field */
 		&_error {
 			border: 0;
+			font-size: clamp(11px, 2vw, 22px);
 
 			&:focus {
 				outline: medium solid red;
