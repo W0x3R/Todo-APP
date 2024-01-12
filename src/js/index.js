@@ -152,13 +152,14 @@ localStorage.getItem(LOCAL_THEME_KEY) === 'light' ? removeDarkTheme() : addDarkT
 
 const btnUp = document.querySelector('.inner_button-up')
 
-
 btnUp.addEventListener('click', function () {
+	console.log(1);
 	window.scrollTo(0, 0)
+
 })
 
+
 window.addEventListener('scroll', function () {
-	console.log(this.scrollY);
 	if (this.scrollY >= 232) {
 		btnUp.style.display = 'block'
 	}

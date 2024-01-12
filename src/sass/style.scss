@@ -185,6 +185,7 @@
 
 	&__list-label {
 		margin-right: 30px;
+		display: flex;
 	}
 	&__list-checkbox {
 		display: none;
@@ -221,6 +222,7 @@
 		height: clamp(23px, 4vw, 30px);
 		position: absolute;
 		right: 0;
+		top: 0;
 
 		&:hover {
 			transform: rotate(90deg);
