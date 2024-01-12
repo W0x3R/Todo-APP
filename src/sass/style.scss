@@ -101,14 +101,19 @@
 	&__text-input {
 		width: clamp(180px, 36vw, 405px);
 		height: clamp(25px, 5vw, 30px);
-		border: 2px solid rgb(0, 0, 0);
 		font-size: clamp(20px, 4vw, 22px);
-		border-radius: 4px;
+		border: 1px solid grey;
+		border-radius: 5px;
+		&:focus {
+			outline: medium solid black;
+		}
 
 		/* Styling for the error state of the input field */
 		&_error {
-			border: 3px solid red;
-
+			border: 0;
+			&:focus {
+				outline: medium solid red;
+			}
 			&::placeholder {
 				color: red;
 			}
@@ -160,7 +165,7 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		font-size: clamp(16px, 4vw, 20px);
+		font-size: clamp(16px, 4vw, 21px);
 		overflow-wrap: anywhere;
 		position: relative;
 
