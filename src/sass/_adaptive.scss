@@ -12,17 +12,19 @@
 
 /* Styling for the inner content wrapper */
 .inner {
-	@media screen and (max-width: 650px) {
+	@media screen and (max-width: 928px) {
 		position: relative;
 	}
 
 	&_toggle-theme {
-		@media screen and (max-width: 650px) {
+		@media screen and (max-width: 928px) {
 			position: absolute;
 			right: 12px;
 			top: 12px;
-			width: 35px;
-			height: 35px;
+		}
+		@media screen and (max-width: 630px) {
+			width: 38px;
+			height: 38px;
 		}
 	}
 }
