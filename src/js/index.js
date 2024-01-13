@@ -5,26 +5,32 @@ const list = document.querySelector('.inner__list');
 const error = document.querySelector('.error');
 const toggleTheme = document.querySelector('.inner_toggle-theme')
 const toggleThemeFill = document.querySelectorAll('.inner_toggle-theme path');
-const footerText = document.querySelector('.footer__text')
 
 let todoArr = [];
+
+function getTheme() {
+	return localStorage.getItem('theme') === 'light' ? 'inner__list-item' : 'inner__list-item_theme-dark'
+}
+
+function getPolygon() {
+	return localStorage.getItem('theme') === 'light' ? 'inner-polygon' : 'inner_delete-list__polygon'
+}
 
 const showMessage = () => {
 	let listMessage = ''
 	todoArr.forEach((item, index) => {
 		listMessage += `
-		<li class ='inner__list-item'>
+		<li class ='${getTheme()}'>
 			<input class = 'inner__list-checkbox' type ='checkbox' id='item_${index}' ${item.checked ? 'checked' : ''}>
 			<label class = 'inner__list-label'  for ='item_${index}'><span>${item.todoValue}</span></label>
 
-			<svg class ='inner_delete-list' version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><polygon  points="404.176,0 256,148.176 107.824,0 0,107.824 148.176,256 0,404.176 107.824,512 256,363.824 404.176,512 512,404.176 363.824,256 512,107.824 "/></svg>
+			<svg class ='inner_delete-list' version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><polygon class ='${getPolygon()}'  points="404.176,0 256,148.176 107.824,0 0,107.824 148.176,256 0,404.176 107.824,512 256,363.824 404.176,512 512,404.176 363.824,256 512,107.824"/></svg>
 
 		</li>`;
 		list.innerHTML = listMessage
 		inputTypeText.value = ''
 	})
 }
-
 
 list.addEventListener('click', function (e) {
 	if (e.target.tagName === 'polygon' || e.target.tagName === 'svg') {
@@ -113,22 +119,17 @@ list.addEventListener('change', function (e) {
 	}
 });
 
-const polygon = document.querySelectorAll('polygon')
 const allLi = document.querySelectorAll('li')
 const labelForTextInput = document.querySelector('.inner__label-text-input')
 const innerListTitle = document.querySelector('.inner__list-title')
 const innerButtonUpRect = document.querySelector('.inner_button-up-rect')
 const innerButtonUpPath = document.querySelector('.inner_button-up-path')
 const innerButtonUpPolygon = document.querySelector('.inner_button-up-polygon')
-
 let LOCAL_THEME_KEY = 'theme'
 
 function changeTheme(action, toggleFill, theme) {
 	document.body.classList[action]('body_theme-dark')
 	inner.classList[action]('inner_theme-dark')
-	footerText.classList[action]('footer__text_theme-dark')
-	polygon.forEach(e => e.classList[action]('inner_delete-list__polygon'));
-	allLi.forEach(e => e.classList[action]('inner__list-item_theme-dark'));
 	labelForTextInput.classList[action]('inner__label-text-input_theme-dark')
 	innerListTitle.classList[action]('inner__list-title_theme-dark')
 	innerButtonUpRect.classList[action]('inner_button-up-rect_theme-dark')
@@ -147,6 +148,7 @@ function removeDarkTheme() {
 }
 
 toggleTheme.addEventListener('click', function () {
+	location.reload()
 	localStorage.getItem(LOCAL_THEME_KEY) === 'light' ? addDarkTheme() : removeDarkTheme()
 })
 
@@ -178,3 +180,5 @@ window.addEventListener('resize', centredButtonUp)
 window.addEventListener('keydown', function () {
 	inputTypeText.focus()
 })
+
+
