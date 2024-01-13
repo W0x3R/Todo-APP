@@ -200,6 +200,10 @@
 				border-bottom: 2px solid #fff;
 				padding-bottom: 10px;
 			}
+
+			& input:checked + label {
+				text-decoration: line-through;
+			}
 		}
 
 		/* Styling for the completed task (checked checkbox) */
@@ -226,9 +230,7 @@
 			color: transparent;
 			display: inline-block;
 			border: 2px solid rgba(255, 255, 255, 0.84);
-			font-size: 18px;
-			font-weight: 900;
-			line-height: 18px;
+			font-size: clamp(14px, 3vw, 18px);
 			text-align: center;
 			vertical-align: middle;
 			transition: color ease 0.3s;
