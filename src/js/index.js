@@ -8,11 +8,11 @@ const toggleThemeFill = document.querySelectorAll('.inner_toggle-theme path');
 
 let todoArr = [];
 
-function getTheme() {
+function getListTheme() {
 	return localStorage.getItem('theme') === 'light' ? 'inner__list-item' : 'inner__list-item_theme-dark'
 }
 
-function getPolygon() {
+function getPolygonTheme() {
 	return localStorage.getItem('theme') === 'light' ? 'inner-polygon' : 'inner_delete-list__polygon'
 }
 
@@ -20,11 +20,11 @@ const showMessage = () => {
 	let listMessage = ''
 	todoArr.forEach((item, index) => {
 		listMessage += `
-		<li class ='${getTheme()}'>
+		<li class ='${getListTheme()}'>
 			<input class = 'inner__list-checkbox' type ='checkbox' id='item_${index}' ${item.checked ? 'checked' : ''}>
 			<label class = 'inner__list-label'  for ='item_${index}'><span>${item.todoValue}</span></label>
 
-			<svg class ='inner_delete-list' version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><polygon class ='${getPolygon()}'  points="404.176,0 256,148.176 107.824,0 0,107.824 148.176,256 0,404.176 107.824,512 256,363.824 404.176,512 512,404.176 363.824,256 512,107.824"/></svg>
+			<svg class ='inner_delete-list' version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><polygon class ='${getPolygonTheme()}'  points="404.176,0 256,148.176 107.824,0 0,107.824 148.176,256 0,404.176 107.824,512 256,363.824 404.176,512 512,404.176 363.824,256 512,107.824"/></svg>
 
 		</li>`;
 		list.innerHTML = listMessage
