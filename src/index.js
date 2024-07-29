@@ -1,44 +1,29 @@
+import { createTaskItem } from './js/createTaskItem';
 import './style.scss';
 
 const addTaskButton = document.querySelector('.inner__button-input');
-const inputTypeText = document.querySelector('.inner__text-input');
+export const inputTypeText = document.querySelector('.inner__text-input');
 const inner = document.querySelector('.inner')
-const list = document.querySelector('.inner__list');
+export const list = document.querySelector('.inner__list');
 const error = document.querySelector('.error');
 const toggleTheme = document.querySelector('.inner_toggle-theme')
 const toggleThemeFill = document.querySelectorAll('.inner_toggle-theme path');
 
-let todoArr = [];
+export let todoArr = [];
 
-function getListTheme() {
+export function getListTheme() {
 	return localStorage.getItem('theme') === 'light' ? 'inner__list-item' : 'inner__list-item_theme-dark'
 }
 
-function getPolygonTheme() {
+export function getPolygonTheme() {
 	return localStorage.getItem('theme') === 'light' ? 'inner-polygon' : 'inner_delete-list__polygon'
-}
-
-const showMessage = () => {
-	let listMessage = ''
-	todoArr.forEach((item, index) => {
-		listMessage += `
-		<li class ='${getListTheme()}'>
-			<input class = 'inner__list-checkbox' type ='checkbox' id='item_${index}' ${item.checked ? 'checked' : ''}>
-			<label class = 'inner__list-label'  for ='item_${index}'><span>${item.todoValue}</span></label>
-
-			<svg class ='inner_delete-list' version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><polygon class ='${getPolygonTheme()}'  points="404.176,0 256,148.176 107.824,0 0,107.824 148.176,256 0,404.176 107.824,512 256,363.824 404.176,512 512,404.176 363.824,256 512,107.824"/></svg>
-
-		</li>`;
-		list.innerHTML = listMessage
-		inputTypeText.value = ''
-	})
 }
 
 list.addEventListener('click', function (e) {
 	if (e.target.tagName === 'polygon' || e.target.tagName === 'svg') {
 		const closestLi = e.target.closest('li')
 		const valueLabel = closestLi.querySelector('label').textContent;
-		const todoItemIndex = todoArr.findIndex(item => item.todoValue === valueLabel);
+		const todoItemIndex = todoArr.findIndex(item => item.value === valueLabel);
 
 		if (todoItemIndex !== -1) {
 			todoArr.splice(todoItemIndex, 1);
@@ -57,7 +42,7 @@ function checkingRepeatValue() {
 
 if (localStorage.getItem('todo')) {
 	todoArr = JSON.parse(localStorage.getItem('todo'))
-	showMessage()
+	createTaskItem()
 }
 
 addTaskButton.addEventListener('click', function (e) {
@@ -68,18 +53,18 @@ addTaskButton.addEventListener('click', function (e) {
 		return
 	}
 
-	if (todoArr.some(item => item.todoValue === inputTypeText.value.trim())) {
+	if (todoArr.some(item => item.value === inputTypeText.value.trim())) {
 		checkingRepeatValue()
 		return;
 	}
 
 	let todoObj = {
-		todoValue: inputTypeText.value,
+		value: inputTypeText.value,
 		checked: false,
 	}
 
 	todoArr.push(todoObj)
-	showMessage()
+	createTaskItem()
 
 	localStorage.setItem('todo', JSON.stringify(todoArr))
 })
@@ -113,7 +98,7 @@ list.addEventListener('change', function (e) {
 	const idInput = e.target.getAttribute('id');
 	const labelFor = list.querySelector(`[for=${idInput}]`);
 	const valueLabel = labelFor.textContent;
-	const todoItem = todoArr.find(item => item.todoValue === valueLabel);
+	const todoItem = todoArr.find(item => item.value === valueLabel);
 
 	if (todoItem) {
 		todoItem.checked = !todoItem.checked;
