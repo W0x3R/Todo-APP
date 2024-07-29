@@ -5,6 +5,7 @@ import { focusFormInput, formInput } from './js/inputField/focusFormInput';
 import { setFormInputErrorStyles } from './js/inputField/setFormInputErrorStyles';
 import { setFormInputPlaceholder } from './js/inputField/setFormInputPlaceholder';
 import './style.scss';
+import { createTask } from './js/createTask';
 
 export const addTaskButton = document.querySelector('.form__task-btn');
 const inner = document.querySelector('.inner')
@@ -35,11 +36,6 @@ if (localStorage.getItem('todo')) {
 }
 
 addTaskButton.addEventListener('click', function (e) {
-	let todoObj = {
-		value: formInput.value,
-		checked: false,
-	}
-
 	e.preventDefault()
 
 	if (formInput.value.length === 0) {
@@ -50,9 +46,7 @@ addTaskButton.addEventListener('click', function (e) {
 		duplicateErrorHandling()
 	}
 	else {
-		todoArr.push(todoObj)
-		createTaskMarkup()
-		localStorage.setItem('todo', JSON.stringify(todoArr))
+		createTask()
 	}
 })
 
