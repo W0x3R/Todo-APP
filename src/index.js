@@ -6,15 +6,18 @@ import { setStorageValue } from './js/storage/setStorageValue';
 import { initialCreateTask } from './js/initialCreateTask';
 import { removeTask } from './js/removeTask';
 import { todoArr, updateTaskOnLoad } from './js/updateTaskOnLoad';
-import { setAppTheme } from './js/changeTheme/setAppTheme';
-import { addDarkTheme, removeDarkTheme } from './js/changeTheme/controlDarkTheme';
+import { changeAppTheme } from './js/changeTheme/changeAppTheme';
 
 export const addTaskButton = document.querySelector('.form__task-btn');
 export const list = document.querySelector('.form__list');
 const toggleTheme = document.querySelector('.toggle-theme')
 
 list.addEventListener('click', (e) => removeTask(e))
-window.addEventListener('load', updateTaskOnLoad)
+window.addEventListener('load', () => {
+	updateTaskOnLoad()
+	changeAppTheme('dark')
+})
+
 addTaskButton.addEventListener('click', (e) => initialCreateTask(e))
 
 function handleInputErrorRemove(textContent) {
@@ -45,13 +48,7 @@ list.addEventListener('change', function (e) {
 	}
 });
 
-let LOCAL_THEME_KEY = 'theme'
-
-toggleTheme.addEventListener('click', function () {
-	localStorage.getItem(LOCAL_THEME_KEY) === 'light' ? addDarkTheme() : removeDarkTheme()
-})
-
-localStorage.getItem(LOCAL_THEME_KEY) === 'light' ? removeDarkTheme() : addDarkTheme()
+toggleTheme.addEventListener('click', () => changeAppTheme('light'))
 
 const btnUp = document.querySelector('.button-up')
 
