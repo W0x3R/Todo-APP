@@ -15,9 +15,7 @@ const toggleTheme = document.querySelector('.toggle-theme')
 const toggleThemeFill = document.querySelectorAll('.toggle-theme path');
 
 list.addEventListener('click', (e) => removeTask(e))
-
 window.addEventListener('load', updateTaskOnLoad)
-
 addTaskButton.addEventListener('click', (e) => initialCreateTask(e))
 
 function handleInputErrorRemove(textContent) {
@@ -48,7 +46,6 @@ list.addEventListener('change', function (e) {
 	}
 });
 
-const allLi = document.querySelectorAll('li')
 const formLabelTask = document.querySelector('.form__label-task')
 const formTitle = document.querySelector('.form__title')
 const innerButtonUpRect = document.querySelector('.button-up-rect')
@@ -57,8 +54,12 @@ const innerButtonUpPolygon = document.querySelector('.button-up-polygon')
 let LOCAL_THEME_KEY = 'theme'
 
 function changeTheme(action, toggleFill, theme) {
+	const formListItems = document.querySelectorAll('.form__list-item')
+	const formListItemsPolygons = document.querySelectorAll('.form__polygon')
 	document.body.classList[action]('body_theme-dark')
 	inner.classList[action]('inner_theme-dark')
+	formListItems.forEach(e => e.classList[action]('form__list-item_theme-dark'))
+	formListItemsPolygons.forEach(e => e.classList[action]('form__polygon_theme-dark'))
 	formLabelTask.classList[action]('form__label-task_theme-dark')
 	formTitle.classList[action]('form__title_theme-dark')
 	innerButtonUpRect.classList[action]('button-up-rect_theme-dark')
@@ -77,7 +78,6 @@ function removeDarkTheme() {
 }
 
 toggleTheme.addEventListener('click', function () {
-	location.reload()
 	localStorage.getItem(LOCAL_THEME_KEY) === 'light' ? addDarkTheme() : removeDarkTheme()
 })
 
