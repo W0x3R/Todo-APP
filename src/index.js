@@ -1,3 +1,5 @@
+import './style.scss';
+
 const addTaskButton = document.querySelector('.inner__button-input');
 const inputTypeText = document.querySelector('.inner__text-input');
 const inner = document.querySelector('.inner')

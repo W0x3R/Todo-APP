@@ -1,25 +1,21 @@
 /* Importing normalize.css for cross-browser consistency */
-@import 'normalize';
+@import './sass/normalize';
 
 /* Styling for the body element */
 .body {
-	background-image: url('../images/1.jpg');
-	background-image: image-set(
-		url('../images/1.avif') type('image/avif'),
-		('../images/1.webp') type('image/webp'),
-		('../images/1.jpg') type('image/jpg')
-	);
+	background-image: url('./images/1.jpg');
+	background-image: image-set(url('./images/1.avif') type('image/avif'),
+			('./images/1.webp') type('image/webp'),
+			('./images/1.jpg') type('image/jpg'));
 	background-repeat: repeat;
 	background-size: cover;
 
 	/* Styling for the body element with dark theme */
 	&_theme-dark {
-		background-image: url('../images/2.jpg');
-		background-image: image-set(
-			url('../images/2.avif') type('image/avif'),
-			('../images/2.webp') type('image/webp'),
-			('../images/2.jpg') type('image/jpg')
-		);
+		background-image: url('./images/2.jpg');
+		background-image: image-set(url('./images/2.avif') type('image/avif'),
+				('./images/2.webp') type('image/webp'),
+				('./images/2.jpg') type('image/jpg'));
 		background-repeat: repeat;
 		background-size: cover;
 	}
@@ -213,13 +209,13 @@
 				padding-bottom: 10px;
 			}
 
-			& input:checked + label {
+			& input:checked+label {
 				text-decoration: line-through;
 			}
 		}
 
 		/* Styling for the completed task (checked checkbox) */
-		& input:checked + label {
+		& input:checked+label {
 			text-decoration: line-through;
 		}
 	}
@@ -233,7 +229,7 @@
 		display: none;
 
 		/* Styling for the label before the checkbox */
-		& + label:before {
+		&+label:before {
 			height: clamp(16px, 3vw, 20px);
 			width: clamp(16px, 3vw, 20px);
 			margin: 0 10px 0 0;
@@ -250,7 +246,7 @@
 		}
 
 		/* Styling for the checked state of the checkbox */
-		&:checked + label:before {
+		&:checked+label:before {
 			color: #000;
 			border-color: #000;
 		}
@@ -302,6 +298,7 @@
 				fill: #000;
 			}
 		}
+
 		&-polygon {
 			fill: #fff;
 
@@ -312,4 +309,4 @@
 	}
 }
 
-@import 'adaptive';
+@import './sass/adaptive';
