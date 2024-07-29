@@ -196,21 +196,8 @@
 
 		/* Styling for each item except the last one with dark theme */
 		&_theme-dark {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			font-size: clamp(16px, 4vw, 21px);
-			overflow-wrap: anywhere;
-			position: relative;
-
 			&:not(:last-of-type) {
-				margin-bottom: 12px;
 				border-bottom: 2px solid #fff;
-				padding-bottom: 10px;
-			}
-
-			& input:checked+label {
-				text-decoration: line-through;
 			}
 		}
 
@@ -256,6 +243,10 @@
 		fill: #000;
 	}
 
+	&-polygon_theme-dark {
+		fill: #fff;
+	}
+
 	/* Styling for the delete task button */
 	&_delete-list {
 		transition: all 1s;
@@ -267,10 +258,6 @@
 
 		&:hover {
 			transform: rotate(90deg);
-		}
-
-		&__polygon {
-			fill: #fff;
 		}
 	}
 
