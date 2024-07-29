@@ -11,14 +11,6 @@ const toggleThemeFill = document.querySelectorAll('.inner_toggle-theme path');
 
 export let todoArr = [];
 
-export function getListTheme() {
-	return localStorage.getItem('theme') === 'light' ? 'inner__list-item' : 'inner__list-item_theme-dark'
-}
-
-export function getPolygonTheme() {
-	return localStorage.getItem('theme') === 'light' ? 'inner-polygon' : 'inner_delete-list__polygon'
-}
-
 list.addEventListener('click', function (e) {
 	if (e.target.tagName === 'polygon' || e.target.tagName === 'svg') {
 		const closestLi = e.target.closest('li')
@@ -167,5 +159,3 @@ window.addEventListener('resize', centredButtonUp)
 window.addEventListener('keydown', function () {
 	inputTypeText.focus()
 })
-
-
