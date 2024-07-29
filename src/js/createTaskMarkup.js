@@ -2,7 +2,7 @@ import { list, todoArr } from "..";
 import { formInput } from "./inputField/focusFormInput";
 import { setCreateTaskTheme } from "./storage/setCreateTaskTheme";
 
-export const createTaskItem = () => {
+export const createTaskMarkup = () => {
 	const taskTheme = setCreateTaskTheme()
 	let [liClass, polygonClass] = taskTheme
 

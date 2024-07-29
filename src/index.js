@@ -1,4 +1,4 @@
-import { createTaskItem } from './js/createTaskItem';
+import { createTaskMarkup } from './js/createTaskMarkup';
 import { duplicateErrorHandling } from './js/inputField/duplicateErrorHandling';
 import { addEmptyErrorHandling } from './js/inputField/addEmptyErrorHandling';
 import { focusFormInput, formInput } from './js/inputField/focusFormInput';
@@ -31,7 +31,7 @@ list.addEventListener('click', function (e) {
 
 if (localStorage.getItem('todo')) {
 	todoArr = JSON.parse(localStorage.getItem('todo'))
-	createTaskItem()
+	createTaskMarkup()
 }
 
 addTaskButton.addEventListener('click', function (e) {
@@ -51,7 +51,7 @@ addTaskButton.addEventListener('click', function (e) {
 	}
 	else {
 		todoArr.push(todoObj)
-		createTaskItem()
+		createTaskMarkup()
 		localStorage.setItem('todo', JSON.stringify(todoArr))
 	}
 })
