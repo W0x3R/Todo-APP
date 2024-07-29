@@ -1,10 +1,12 @@
 import { createTaskItem } from './js/createTaskItem';
+import { duplicateErrorHandling } from './js/inputField/duplicateErrorHandling';
+import { addEmptyErrorHandling } from './js/inputField/addEmptyErrorHandling';
 import { focusFormInput, formInput } from './js/inputField/focusFormInput';
 import { setFormInputErrorStyles } from './js/inputField/setFormInputErrorStyles';
 import { setFormInputPlaceholder } from './js/inputField/setFormInputPlaceholder';
 import './style.scss';
 
-const addTaskButton = document.querySelector('.form__task-btn');
+export const addTaskButton = document.querySelector('.form__task-btn');
 const inner = document.querySelector('.inner')
 export const list = document.querySelector('.form__list');
 const error = document.querySelector('.error');
@@ -27,50 +29,32 @@ list.addEventListener('click', function (e) {
 	}
 })
 
-function checkingRepeatValue() {
-	focusFormInput()
-	setFormInputPlaceholder('duplication')
-	setFormInputErrorStyles('add')
-	formInput.value = ''
-}
-
 if (localStorage.getItem('todo')) {
 	todoArr = JSON.parse(localStorage.getItem('todo'))
 	createTaskItem()
 }
 
 addTaskButton.addEventListener('click', function (e) {
-	e.preventDefault()
-
-	if (formInput.value.length === 0) {
-		handleInputErrorAdd('Error: The input field is empty.')
-		return
-	}
-
-	if (todoArr.some(item => item.value === formInput.value.trim())) {
-		checkingRepeatValue()
-		return;
-	}
-
 	let todoObj = {
 		value: formInput.value,
 		checked: false,
 	}
 
-	todoArr.push(todoObj)
-	createTaskItem()
+	e.preventDefault()
 
-	localStorage.setItem('todo', JSON.stringify(todoArr))
+	if (formInput.value.length === 0) {
+		addEmptyErrorHandling()
+	}
+
+	else if (todoArr.some(item => item.value === formInput.value.trim())) {
+		duplicateErrorHandling()
+	}
+	else {
+		todoArr.push(todoObj)
+		createTaskItem()
+		localStorage.setItem('todo', JSON.stringify(todoArr))
+	}
 })
-
-function handleInputErrorAdd() {
-	setFormInputErrorStyles('add')
-	addTaskButton.classList.add('form__task-btn_disabled');
-	addTaskButton.textContent = '❌';
-	setFormInputPlaceholder('empty')
-	addTaskButton.setAttribute('disabled', '');
-	focusFormInput()
-}
 
 function handleInputErrorRemove(textContent) {
 	setFormInputErrorStyles('remove')
