@@ -6,7 +6,7 @@ import { setStorageValue } from './js/storage/setStorageValue';
 import { initialCreateTask } from './js/initialCreateTask';
 import { removeTask } from './js/removeTask';
 import { todoArr, updateTaskOnLoad } from './js/updateTaskOnLoad';
-import { changeAppTheme } from './js/changeTheme/changeAppTheme';
+import { setAppTheme } from './js/changeTheme/setAppTheme';
 
 export const addTaskButton = document.querySelector('.form__task-btn');
 export const list = document.querySelector('.form__list');
@@ -47,11 +47,11 @@ list.addEventListener('change', function (e) {
 let LOCAL_THEME_KEY = 'theme'
 
 function addDarkTheme() {
-	changeAppTheme('add', 'dark')
+	setAppTheme('add', 'dark')
 }
 
 function removeDarkTheme() {
-	changeAppTheme('remove', 'light')
+	setAppTheme('remove', 'light')
 }
 
 toggleTheme.addEventListener('click', function () {
