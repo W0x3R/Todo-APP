@@ -1,0 +1,1 @@
+export const getStorageValue = (value) => localStorage.getItem(value)
