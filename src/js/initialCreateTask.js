@@ -1,4 +1,4 @@
-import { todoArr } from ".."
+import { todoArr } from "./updateTaskOnLoad"
 import { createTask } from "./createTask"
 import { addEmptyErrorHandling } from "./inputField/addEmptyErrorHandling"
 import { duplicateErrorHandling } from "./inputField/duplicateErrorHandling"

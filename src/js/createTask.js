@@ -1,4 +1,4 @@
-import { todoArr } from ".."
+import { todoArr } from "./updateTaskOnLoad"
 import { createTaskMarkup } from "./createTaskMarkup"
 import { formInput } from "./inputField/focusFormInput"
 import { setStorageValue } from "./storage/setStorageValue"

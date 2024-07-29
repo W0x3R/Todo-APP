@@ -1,4 +1,4 @@
-import { todoArr } from "..";
+import { todoArr } from "./updateTaskOnLoad";
 import { setStorageValue } from "./storage/setStorageValue";
 
 export const removeTask = (e) => {

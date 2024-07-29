@@ -1,6 +1,7 @@
-import { list, todoArr } from "..";
+import { list } from "..";
 import { formInput } from "./inputField/focusFormInput";
 import { setCreateTaskTheme } from "./setCreateTaskTheme";
+import { todoArr } from "./updateTaskOnLoad";
 
 export const createTaskMarkup = () => {
 	const taskTheme = setCreateTaskTheme()

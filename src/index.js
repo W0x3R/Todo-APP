@@ -1,4 +1,3 @@
-import { createTaskMarkup } from './js/createTaskMarkup';
 import { focusFormInput, formInput } from './js/inputField/focusFormInput';
 import { setFormInputErrorStyles } from './js/inputField/setFormInputErrorStyles';
 import { setFormInputPlaceholder } from './js/inputField/setFormInputPlaceholder';
@@ -6,6 +5,7 @@ import './style.scss';
 import { setStorageValue } from './js/storage/setStorageValue';
 import { initialCreateTask } from './js/initialCreateTask';
 import { removeTask } from './js/removeTask';
+import { todoArr, updateTaskOnLoad } from './js/updateTaskOnLoad';
 
 export const addTaskButton = document.querySelector('.form__task-btn');
 const inner = document.querySelector('.inner')
@@ -14,14 +14,9 @@ const error = document.querySelector('.error');
 const toggleTheme = document.querySelector('.toggle-theme')
 const toggleThemeFill = document.querySelectorAll('.toggle-theme path');
 
-export let todoArr = [];
-
 list.addEventListener('click', (e) => removeTask(e))
 
-if (localStorage.getItem('todo')) {
-	todoArr = JSON.parse(localStorage.getItem('todo'))
-	createTaskMarkup()
-}
+window.addEventListener('load', updateTaskOnLoad)
 
 addTaskButton.addEventListener('click', (e) => initialCreateTask(e))
 
