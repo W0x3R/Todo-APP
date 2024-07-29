@@ -1,3 +1,3 @@
 export const formInput = document.querySelector('.form__input');
 
-export const inputFocus = () => formInput.focus()
+export const focusFormInput = () => formInput.focus()

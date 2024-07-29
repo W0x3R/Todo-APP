@@ -1,5 +1,5 @@
 import { list, todoArr } from "..";
-import { formInput } from "./inputField/inputFocus";
+import { formInput } from "./inputField/focusFormInput";
 import { setCreateTaskTheme } from "./storage/setCreateTaskTheme";
 
 export const createTaskItem = () => {

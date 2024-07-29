@@ -1,5 +1,5 @@
 import { createTaskItem } from './js/createTaskItem';
-import { inputFocus, formInput } from './js/inputField/inputFocus';
+import { focusFormInput, formInput } from './js/inputField/focusFormInput';
 import './style.scss';
 
 const addTaskButton = document.querySelector('.form__task-btn');
@@ -26,7 +26,7 @@ list.addEventListener('click', function (e) {
 })
 
 function checkingRepeatValue() {
-	inputFocus()
+	focusFormInput()
 	formInput.setAttribute('placeholder', 'Error: This value already exists')
 	formInput.classList.add('form__input_error');
 	formInput.value = ''
@@ -67,7 +67,7 @@ function handleInputErrorAdd(message) {
 	addTaskButton.textContent = '❌';
 	formInput.setAttribute('placeholder', message);
 	addTaskButton.setAttribute('disabled', '');
-	inputFocus()
+	focusFormInput()
 }
 
 function handleInputErrorRemove(textContent, placeholder) {
@@ -156,4 +156,4 @@ function centredButtonUp() {
 
 window.addEventListener('resize', centredButtonUp)
 
-window.addEventListener('keydown', inputFocus)
+window.addEventListener('keydown', focusFormInput)
