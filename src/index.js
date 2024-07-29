@@ -1,5 +1,6 @@
 import { createTaskItem } from './js/createTaskItem';
 import { focusFormInput, formInput } from './js/inputField/focusFormInput';
+import { setFormInputPlaceholder } from './js/inputField/setFormInputPlaceholder';
 import './style.scss';
 
 const addTaskButton = document.querySelector('.form__task-btn');
@@ -27,7 +28,7 @@ list.addEventListener('click', function (e) {
 
 function checkingRepeatValue() {
 	focusFormInput()
-	formInput.setAttribute('placeholder', 'Error: This value already exists')
+	setFormInputPlaceholder('duplication')
 	formInput.classList.add('form__input_error');
 	formInput.value = ''
 }
@@ -61,29 +62,29 @@ addTaskButton.addEventListener('click', function (e) {
 	localStorage.setItem('todo', JSON.stringify(todoArr))
 })
 
-function handleInputErrorAdd(message) {
+function handleInputErrorAdd() {
 	formInput.classList.add('form__input_error');
 	addTaskButton.classList.add('form__task-btn_disabled');
 	addTaskButton.textContent = '❌';
-	formInput.setAttribute('placeholder', message);
+	setFormInputPlaceholder('empty')
 	addTaskButton.setAttribute('disabled', '');
 	focusFormInput()
 }
 
-function handleInputErrorRemove(textContent, placeholder) {
+function handleInputErrorRemove(textContent) {
 	formInput.classList.remove('form__input_error');
 	addTaskButton.classList.remove('form__task-btn_disabled')
 	addTaskButton.textContent = textContent
-	formInput.setAttribute('placeholder', placeholder)
+	setFormInputPlaceholder('basic')
 	addTaskButton.removeAttribute('disabled')
 }
 
 formInput.addEventListener('keydown', function () {
-	handleInputErrorRemove('ADD', 'Description')
+	handleInputErrorRemove('ADD')
 })
 
 formInput.addEventListener('blur', function () {
-	handleInputErrorRemove('ADD', 'Description')
+	handleInputErrorRemove('ADD')
 })
 
 list.addEventListener('change', function (e) {
