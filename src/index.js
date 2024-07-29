@@ -5,6 +5,7 @@ import { setFormInputPlaceholder } from './js/inputField/setFormInputPlaceholder
 import './style.scss';
 import { setStorageValue } from './js/storage/setStorageValue';
 import { initialCreateTask } from './js/initialCreateTask';
+import { removeTask } from './js/removeTask';
 
 export const addTaskButton = document.querySelector('.form__task-btn');
 const inner = document.querySelector('.inner')
@@ -15,19 +16,7 @@ const toggleThemeFill = document.querySelectorAll('.toggle-theme path');
 
 export let todoArr = [];
 
-list.addEventListener('click', function (e) {
-	if (e.target.tagName === 'polygon' || e.target.tagName === 'svg') {
-		const closestLi = e.target.closest('li')
-		const valueLabel = closestLi.querySelector('label').textContent;
-		const todoItemIndex = todoArr.findIndex(item => item.value === valueLabel);
-
-		if (todoItemIndex !== -1) {
-			todoArr.splice(todoItemIndex, 1);
-			setStorageValue('todo', JSON.stringify(todoArr))
-			closestLi.remove();
-		}
-	}
-})
+list.addEventListener('click', (e) => removeTask(e))
 
 if (localStorage.getItem('todo')) {
 	todoArr = JSON.parse(localStorage.getItem('todo'))
