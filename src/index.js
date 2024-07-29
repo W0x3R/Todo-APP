@@ -1,12 +1,10 @@
 import { createTaskMarkup } from './js/createTaskMarkup';
-import { duplicateErrorHandling } from './js/inputField/duplicateErrorHandling';
-import { addEmptyErrorHandling } from './js/inputField/addEmptyErrorHandling';
 import { focusFormInput, formInput } from './js/inputField/focusFormInput';
 import { setFormInputErrorStyles } from './js/inputField/setFormInputErrorStyles';
 import { setFormInputPlaceholder } from './js/inputField/setFormInputPlaceholder';
 import './style.scss';
-import { createTask } from './js/createTask';
 import { setStorageValue } from './js/storage/setStorageValue';
+import { initialCreateTask } from './js/initialCreateTask';
 
 export const addTaskButton = document.querySelector('.form__task-btn');
 const inner = document.querySelector('.inner')
@@ -36,20 +34,7 @@ if (localStorage.getItem('todo')) {
 	createTaskMarkup()
 }
 
-addTaskButton.addEventListener('click', function (e) {
-	e.preventDefault()
-
-	if (formInput.value.length === 0) {
-		addEmptyErrorHandling()
-	}
-
-	else if (todoArr.some(item => item.value === formInput.value.trim())) {
-		duplicateErrorHandling()
-	}
-	else {
-		createTask()
-	}
-})
+addTaskButton.addEventListener('click', (e) => initialCreateTask(e))
 
 function handleInputErrorRemove(textContent) {
 	setFormInputErrorStyles('remove')
