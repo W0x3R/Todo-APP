@@ -1,5 +1,6 @@
 import { createTaskItem } from './js/createTaskItem';
 import { focusFormInput, formInput } from './js/inputField/focusFormInput';
+import { setFormInputErrorStyles } from './js/inputField/setFormInputErrorStyles';
 import { setFormInputPlaceholder } from './js/inputField/setFormInputPlaceholder';
 import './style.scss';
 
@@ -29,7 +30,7 @@ list.addEventListener('click', function (e) {
 function checkingRepeatValue() {
 	focusFormInput()
 	setFormInputPlaceholder('duplication')
-	formInput.classList.add('form__input_error');
+	setFormInputErrorStyles('add')
 	formInput.value = ''
 }
 
@@ -63,7 +64,7 @@ addTaskButton.addEventListener('click', function (e) {
 })
 
 function handleInputErrorAdd() {
-	formInput.classList.add('form__input_error');
+	setFormInputErrorStyles('add')
 	addTaskButton.classList.add('form__task-btn_disabled');
 	addTaskButton.textContent = '❌';
 	setFormInputPlaceholder('empty')
@@ -72,7 +73,7 @@ function handleInputErrorAdd() {
 }
 
 function handleInputErrorRemove(textContent) {
-	formInput.classList.remove('form__input_error');
+	setFormInputErrorStyles('remove')
 	addTaskButton.classList.remove('form__task-btn_disabled')
 	addTaskButton.textContent = textContent
 	setFormInputPlaceholder('basic')
