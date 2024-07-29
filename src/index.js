@@ -6,6 +6,7 @@ import { setFormInputErrorStyles } from './js/inputField/setFormInputErrorStyles
 import { setFormInputPlaceholder } from './js/inputField/setFormInputPlaceholder';
 import './style.scss';
 import { createTask } from './js/createTask';
+import { setStorageValue } from './js/storage/setStorageValue';
 
 export const addTaskButton = document.querySelector('.form__task-btn');
 const inner = document.querySelector('.inner')
@@ -24,7 +25,7 @@ list.addEventListener('click', function (e) {
 
 		if (todoItemIndex !== -1) {
 			todoArr.splice(todoItemIndex, 1);
-			localStorage.setItem('todo', JSON.stringify(todoArr));
+			setStorageValue('todo', JSON.stringify(todoArr))
 			closestLi.remove();
 		}
 	}
@@ -74,7 +75,7 @@ list.addEventListener('change', function (e) {
 
 	if (todoItem) {
 		todoItem.checked = !todoItem.checked;
-		localStorage.setItem('todo', JSON.stringify(todoArr));
+		setStorageValue('todo', JSON.stringify(todoArr))
 	}
 });
 
@@ -95,7 +96,7 @@ function changeTheme(action, toggleFill, theme) {
 	innerButtonUpPath.classList[action]('button-up-path_theme-dark')
 	innerButtonUpPolygon.classList[action]('button-up-polygon_theme-dark')
 	toggleThemeFill.forEach(e => e.style.fill = toggleFill)
-	localStorage.setItem(LOCAL_THEME_KEY, theme);
+	setStorageValue(LOCAL_THEME_KEY, theme)
 }
 
 function addDarkTheme() {

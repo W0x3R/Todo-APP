@@ -1,6 +1,7 @@
 import { todoArr } from ".."
 import { createTaskMarkup } from "./createTaskMarkup"
 import { formInput } from "./inputField/focusFormInput"
+import { setStorageValue } from "./storage/setStorageValue"
 
 export const createTask = () => {
 	let todoObj = {
@@ -10,5 +11,5 @@ export const createTask = () => {
 
 	todoArr.push(todoObj)
 	createTaskMarkup()
-	localStorage.setItem('todo', JSON.stringify(todoArr))
+	setStorageValue('todo', JSON.stringify(todoArr))
 }

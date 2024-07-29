@@ -1,0 +1,1 @@
+export const setStorageValue = (key, value) => localStorage.setItem(key, value)
