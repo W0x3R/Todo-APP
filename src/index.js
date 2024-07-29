@@ -6,7 +6,7 @@ import { setStorageValue } from './js/storage/setStorageValue';
 import { initialCreateTask } from './js/initialCreateTask';
 import { removeTask } from './js/removeTask';
 import { todoArr, updateTaskOnLoad } from './js/updateTaskOnLoad';
-import { changeAppTheme } from './js/changeAppTheme';
+import { changeAppTheme } from './js/changeTheme/changeAppTheme';
 
 export const addTaskButton = document.querySelector('.form__task-btn');
 export const list = document.querySelector('.form__list');

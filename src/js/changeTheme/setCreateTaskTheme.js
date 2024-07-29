@@ -1,4 +1,4 @@
-import { getStorageValue } from "./storage/getStorageValue"
+import { getStorageValue } from "../storage/getStorageValue"
 
 export const setCreateTaskTheme = () => {
 	let currentTheme = getStorageValue('theme')
