@@ -1,7 +1,5 @@
-/* Importing normalize.css for cross-browser consistency */
 @import './sass/normalize';
 
-/* Styling for the body element */
 .body {
 	background-image: url('./images/1.jpg');
 	background-image: image-set(url('./images/1.avif') type('image/avif'),
@@ -10,7 +8,6 @@
 	background-repeat: repeat;
 	background-size: cover;
 
-	/* Styling for the body element with dark theme */
 	&_theme-dark {
 		background-image: url('./images/2.jpg');
 		background-image: image-set(url('./images/2.avif') type('image/avif'),
@@ -21,7 +18,6 @@
 	}
 }
 
-/* Styling for the main container */
 .container {
 	display: flex;
 	flex-direction: column;
@@ -30,14 +26,12 @@
 	min-height: 100%;
 }
 
-/* Styling for the main content section */
 .main {
 	flex: 1;
 	margin-top: clamp(20px, 5vw, 35px);
 	margin-bottom: clamp(20px, 5vw, 35px);
 }
 
-/* Styling for the inner content wrapper */
 .inner {
 	display: flex;
 	flex-direction: column;
@@ -51,37 +45,32 @@
 	border: 10px solid black;
 	min-height: 70vh;
 
-	/* Styling for the inner content wrapper width dark theme */
 	&_theme-dark {
 		color: white;
 		border: 10px solid #fff;
 		background: rgb(117 117 117 / 95%);
 	}
+}
 
-	/* Styling for the button that toggle theme */
-	&_toggle-theme {
-		position: absolute;
-		right: 30px;
-		top: 25px;
-	}
+.toggle-theme {
+	position: absolute;
+	right: 30px;
+	top: 25px;
+}
 
-	/* Styling for the title of the ToDo list */
-	&__title {
-		padding-top: 10px;
-		margin-bottom: 20px;
-		font-size: clamp(32px, 5vw, 43px);
-		user-select: none;
-	}
+.title {
+	padding-top: 10px;
+	margin-bottom: 20px;
+	font-size: clamp(32px, 5vw, 43px);
+	user-select: none;
+}
 
-	/* Styling for the form containing task input and button */
-	&__form {
-		display: flex;
-		flex-direction: column;
-		width: clamp(230px, 80vw, 600px);
-	}
+.form {
+	display: flex;
+	flex-direction: column;
+	width: clamp(230px, 80vw, 600px);
 
-	/* Styling for the label of the task input field */
-	&__label-text-input {
+	&__label-task {
 		margin-bottom: 20px;
 		padding-bottom: 5px;
 		border-bottom: 3px solid black;
@@ -89,13 +78,11 @@
 		text-align: center;
 		cursor: pointer;
 
-		/* Styling for the label of the task input field width dark theme */
 		&_theme-dark {
 			border-bottom: 3px solid #fff;
 		}
 	}
 
-	/* Styling for the wrapper containing task input and button */
 	&__input-wrapper {
 		display: flex;
 		align-items: center;
@@ -104,8 +91,7 @@
 		margin-bottom: 20px;
 	}
 
-	/* Styling for the task input field */
-	&__text-input {
+	&__input {
 		width: clamp(180px, 55vw, 475px);
 		height: clamp(25px, 5vw, 30px);
 		font-size: clamp(20px, 4vw, 22px);
@@ -121,7 +107,6 @@
 			outline: medium solid black;
 		}
 
-		/* Styling for the error state of the input field */
 		&_error {
 			border: 0;
 			font-size: clamp(11px, 2vw, 22px);
@@ -136,8 +121,7 @@
 		}
 	}
 
-	/* Styling for the button to add a task */
-	&__button-input {
+	&__task-btn {
 		width: clamp(65px, 16vw, 105px);
 		height: clamp(23px, 5vw, 28px);
 		border-radius: 4px;
@@ -153,7 +137,6 @@
 			box-shadow: none;
 		}
 
-		/* Styling for the button in disabled state */
 		&_disabled {
 			cursor: not-allowed;
 			background-color: #fff;
@@ -162,8 +145,7 @@
 		}
 	}
 
-	/* Styling for the title of the task list */
-	&__list-title {
+	&__title {
 		margin-bottom: 15px;
 		padding-bottom: 5px;
 		border-bottom: 3px solid black;
@@ -172,13 +154,11 @@
 		text-align: center;
 		user-select: none;
 
-		/* Styling for the title of the task list with dark theme */
 		&_theme-dark {
 			border-bottom: 3px solid #fff;
 		}
 	}
 
-	/* Styling for the list items of the task */
 	&__list-item {
 		display: flex;
 		justify-content: space-between;
@@ -239,16 +219,15 @@
 		}
 	}
 
-	&-polygon {
+	&__polygon {
 		fill: #000;
 	}
 
-	&-polygon_theme-dark {
+	&__polygon_theme-dark {
 		fill: #fff;
 	}
 
-	/* Styling for the delete task button */
-	&_delete-list {
+	&__delete-list {
 		transition: all 1s;
 		width: clamp(20px, 4vw, 30px);
 		height: clamp(20px, 4vw, 30px);
@@ -260,38 +239,39 @@
 			transform: rotate(90deg);
 		}
 	}
+}
 
-	/* Styling for the button up */
-	&_button-up {
-		display: none;
-		width: 40px;
-		position: fixed;
-		bottom: 35px;
-		right: calc(50% - 20px);
-		fill: white;
 
-		&-rect {
+/* Styling for the button up */
+.button-up {
+	display: none;
+	width: 40px;
+	position: fixed;
+	bottom: 35px;
+	right: calc(50% - 20px);
+	fill: white;
+
+	&-rect {
+		fill: #000;
+
+		&_theme-dark {
+			fill: #fff;
+		}
+	}
+
+	&-path {
+		fill: #fff;
+
+		&_theme-dark {
 			fill: #000;
-
-			&_theme-dark {
-				fill: #fff;
-			}
 		}
+	}
 
-		&-path {
-			fill: #fff;
+	&-polygon {
+		fill: #fff;
 
-			&_theme-dark {
-				fill: #000;
-			}
-		}
-
-		&-polygon {
-			fill: #fff;
-
-			&_theme-dark {
-				fill: #000;
-			}
+		&_theme-dark {
+			fill: #000;
 		}
 	}
 }

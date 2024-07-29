@@ -1,3 +1,3 @@
-export const inputTypeText = document.querySelector('.inner__text-input');
+export const formInput = document.querySelector('.form__input');
 
-export const inputFocus = () => inputTypeText.focus()
+export const inputFocus = () => formInput.focus()
