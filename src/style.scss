@@ -1,21 +1,14 @@
 @import './sass/normalize';
 @import './sass/media';
+@import './sass/mixins';
 
 .body {
-	background-image: url('./images/1.jpg');
-	background-image: image-set(url('./images/1.avif') type('image/avif'),
-			('./images/1.webp') type('image/webp'),
-			('./images/1.jpg') type('image/jpg'));
+	@include imageSet('1');
 	background-repeat: repeat;
 	background-size: contain;
 
 	&_theme-dark {
-		background-image: url('./images/2.jpg');
-		background-image: image-set(url('./images/2.avif') type('image/avif'),
-				('./images/2.webp') type('image/webp'),
-				('./images/2.jpg') type('image/jpg'));
-		background-repeat: repeat;
-		background-size: contain;
+		@include imageSet('2')
 	}
 }
 
