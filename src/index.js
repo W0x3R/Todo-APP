@@ -1,12 +1,11 @@
 import { focusFormInput, formInput } from './js/inputField/focusFormInput';
-import { setFormInputErrorStyles } from './js/inputField/setFormInputErrorStyles';
-import { setFormInputPlaceholder } from './js/inputField/setFormInputPlaceholder';
 import './style.scss';
 import { setStorageValue } from './js/storage/setStorageValue';
 import { initialCreateTask } from './js/initialCreateTask';
 import { removeTask } from './js/removeTask';
 import { todoArr, updateTaskOnLoad } from './js/updateTaskOnLoad';
 import { changeAppTheme } from './js/changeTheme/changeAppTheme';
+import { removeEmptyErrorHandling } from './js/inputField/removeEmptyErrorHandling';
 
 export const addTaskButton = document.querySelector('.form__task-btn');
 export const list = document.querySelector('.form__list');
@@ -19,22 +18,8 @@ window.addEventListener('load', () => {
 })
 
 addTaskButton.addEventListener('click', (e) => initialCreateTask(e))
-
-function handleInputErrorRemove(textContent) {
-	setFormInputErrorStyles('remove')
-	addTaskButton.classList.remove('form__task-btn_disabled')
-	addTaskButton.textContent = textContent
-	setFormInputPlaceholder('basic')
-	addTaskButton.removeAttribute('disabled')
-}
-
-formInput.addEventListener('keydown', function () {
-	handleInputErrorRemove('ADD')
-})
-
-formInput.addEventListener('blur', function () {
-	handleInputErrorRemove('ADD')
-})
+formInput.addEventListener('keydown', removeEmptyErrorHandling)
+formInput.addEventListener('blur', removeEmptyErrorHandling)
 
 list.addEventListener('change', function (e) {
 	const idInput = e.target.getAttribute('id');
@@ -52,9 +37,7 @@ toggleTheme.addEventListener('click', () => changeAppTheme('light'))
 
 const btnUp = document.querySelector('.button-up')
 
-btnUp.addEventListener('click', function () {
-	window.scrollTo(0, 0)
-})
+btnUp.addEventListener('click', () => window.scrollTo(0, 0))
 
 window.addEventListener('scroll', function () {
 	if (this.scrollY >= 232) {
