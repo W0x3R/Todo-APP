@@ -1,4 +1,5 @@
 @import './sass/normalize';
+@import './sass/media';
 
 .body {
 	background-image: url('./images/1.jpg');
@@ -45,6 +46,10 @@
 	border: 10px solid black;
 	min-height: 70vh;
 
+	@include desktop {
+		position: relative;
+	}
+
 	&_theme-dark {
 		color: white;
 		border: 10px solid #fff;
@@ -56,6 +61,17 @@
 	position: absolute;
 	right: 30px;
 	top: 25px;
+
+	@include desktop {
+		position: absolute;
+		right: 12px;
+		top: 12px;
+	}
+
+	@include mobile {
+		width: 38px;
+		height: 38px;
+	}
 
 	&_dark {
 		fill: rgb(255, 255, 255)
@@ -283,5 +299,3 @@
 		}
 	}
 }
-
-@import './sass/adaptive';
