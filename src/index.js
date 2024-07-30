@@ -6,8 +6,7 @@ import { removeEmptyErrorHandling } from './js/inputField/removeEmptyErrorHandli
 import { showBtnUpOnScroll } from './js/showBtnUpOnScroll';
 import { clickEvents } from './js/eventHandlers/clickEvents';
 import { callClickEvents } from './js/eventHandlers/callClickEvents';
-
-export const list = document.querySelector('.form__list');
+import { list } from './js/createTaskMarkup';
 
 window.addEventListener('load', () => {
 	updateTaskOnLoad()
