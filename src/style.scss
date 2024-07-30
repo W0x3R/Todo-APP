@@ -204,10 +204,10 @@
 
 		/* Styling for the label before the checkbox */
 		&+label:before {
+			position: absolute;
+			left: 0;
 			height: clamp(16px, 3vw, 20px);
 			width: clamp(16px, 3vw, 20px);
-			margin: 0 10px 0 0;
-			margin-top: clamp(-2px, 7vw, -6px);
 			content: '\2714';
 			color: transparent;
 			display: inline-block;
@@ -216,7 +216,6 @@
 			text-align: center;
 			vertical-align: middle;
 			transition: color ease 0.3s;
-			cursor: pointer;
 		}
 
 		/* Styling for the checked state of the checkbox */
