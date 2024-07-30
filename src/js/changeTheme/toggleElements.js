@@ -9,4 +9,5 @@ export const toggleElements = [
 	{ selector: '.button-up-path', class: 'button-up-path_theme-dark' },
 	{ selector: '.button-up-polygon', class: 'button-up-polygon_theme-dark' },
 	{ selector: '.toggle-theme path', class: 'toggle-theme_dark' },
+	{ selector: '.form__list-label', class: 'form__list-label_dark-theme' }
 ]
