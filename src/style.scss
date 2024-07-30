@@ -252,7 +252,8 @@
 	width: 40px;
 	position: fixed;
 	bottom: 35px;
-	right: calc(50% - 20px);
+	right: 50%;
+	transform: translate(50%, 0);
 	fill: white;
 
 	&-rect {
