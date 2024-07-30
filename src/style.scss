@@ -253,10 +253,11 @@
 	display: none;
 	width: 40px;
 	position: fixed;
-	bottom: 35px;
+	bottom: 1%;
 	right: 50%;
 	transform: translate(50%, 0);
-	fill: white;
+	border-radius: 10px;
+	opacity: 0.8;
 
 	&-rect {
 		fill: #000;
