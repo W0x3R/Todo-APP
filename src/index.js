@@ -7,7 +7,6 @@ import { showBtnUpOnScroll } from './js/showBtnUpOnScroll';
 import { clickEvents } from './js/eventHandlers/clickEvents';
 import { callClickEvents } from './js/eventHandlers/callClickEvents';
 
-export const addTaskButton = document.querySelector('.form__task-btn');
 export const list = document.querySelector('.form__list');
 
 window.addEventListener('load', () => {

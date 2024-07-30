@@ -1,7 +1,8 @@
-import { addTaskButton } from "../..";
 import { focusFormInput } from "./focusFormInput";
 import { setFormInputErrorStyles } from "./setFormInputErrorStyles";
 import { setFormInputPlaceholder } from "./setFormInputPlaceholder";
+
+export const addTaskButton = document.querySelector('.form__task-btn');
 
 export const addEmptyErrorHandling = () => {
 	setFormInputErrorStyles('add')
