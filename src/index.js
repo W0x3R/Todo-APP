@@ -35,11 +35,4 @@ window.addEventListener('scroll', function () {
 	}
 })
 
-function centredButtonUp() {
-	const windowCenter = btnUp.innerWidth
-	const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
-	btnUp.style.right = (windowCenter / 2) - scrollBarWidth - btnUp.getBoundingClientRect().width / 2
-}
-
-window.addEventListener('resize', centredButtonUp)
 window.addEventListener('keydown', focusFormInput)
