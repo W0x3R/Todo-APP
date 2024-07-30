@@ -1,5 +1,5 @@
-import { formInput } from "./inputField/focusFormInput";
-import { setCreateTaskTheme } from "./changeTheme/setCreateTaskTheme";
+import { formInput } from "../inputField/focusFormInput";
+import { setCreateTaskTheme } from "../changeTheme/setCreateTaskTheme";
 import { todoArr } from "./updateTaskOnLoad";
 
 export const list = document.querySelector('.form__list');

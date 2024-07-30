@@ -1,5 +1,5 @@
 import { todoArr } from "./updateTaskOnLoad";
-import { setStorageValue } from "./storage/setStorageValue";
+import { setStorageValue } from "../storage/setStorageValue";
 
 export const removeTask = (e) => {
 	const target = e.target

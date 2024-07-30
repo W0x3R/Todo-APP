@@ -1,6 +1,6 @@
 import { changeAppTheme } from "../changeTheme/changeAppTheme";
-import { initialCreateTask } from "../initialCreateTask";
-import { removeTask } from "../removeTask";
+import { initialCreateTask } from "../task/initialCreateTask";
+import { removeTask } from "../task/removeTask";
 
 export const clickEvents = {
 	'.form__list': (e) => removeTask(e),

@@ -1,5 +1,5 @@
 import { createTaskMarkup } from "./createTaskMarkup";
-import { getStorageValue } from "./storage/getStorageValue"
+import { getStorageValue } from "../storage/getStorageValue"
 
 export let todoArr = [];
 

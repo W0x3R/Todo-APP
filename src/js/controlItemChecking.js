@@ -1,6 +1,6 @@
-import { list } from "..";
+import { list } from "./task/createTaskMarkup";
 import { setStorageValue } from "./storage/setStorageValue";
-import { todoArr } from "./updateTaskOnLoad";
+import { todoArr } from "./task/updateTaskOnLoad";
 
 export const controlItemChecking = (e) => {
 	const idInput = e.target.getAttribute('id');
