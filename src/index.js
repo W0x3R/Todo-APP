@@ -18,8 +18,6 @@ window.addEventListener('load', () => {
 formInput.addEventListener('keydown', removeEmptyErrorHandling)
 formInput.addEventListener('blur', removeEmptyErrorHandling)
 list.addEventListener('change', (e) => controlItemChecking(e));
-
-export const btnUp = document.querySelector('.button-up')
 window.addEventListener('click', (e) => callClickEvents(e, clickEvents))
 window.addEventListener('scroll', showBtnUpOnScroll)
 window.addEventListener('keydown', focusFormInput)
