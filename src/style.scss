@@ -192,8 +192,11 @@
 	}
 
 	&__list-label {
-		margin-right: 30px;
+		position: relative;
 		display: flex;
+		padding-left: 30px;
+		margin-right: 30px;
+		cursor: pointer;
 	}
 
 	&__list-checkbox {
