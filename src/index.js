@@ -1,30 +1,25 @@
 import { focusFormInput, formInput } from './js/inputField/focusFormInput';
 import './style.scss';
-import { initialCreateTask } from './js/initialCreateTask';
-import { removeTask } from './js/removeTask';
 import { updateTaskOnLoad } from './js/updateTaskOnLoad';
 import { changeAppTheme } from './js/changeTheme/changeAppTheme';
 import { removeEmptyErrorHandling } from './js/inputField/removeEmptyErrorHandling';
 import { showBtnUpOnScroll } from './js/showBtnUpOnScroll';
+import { clickEvents } from './js/eventHandlers/clickEvents';
+import { callClickEvents } from './js/eventHandlers/callClickEvents';
 
 export const addTaskButton = document.querySelector('.form__task-btn');
 export const list = document.querySelector('.form__list');
-const toggleTheme = document.querySelector('.toggle-theme')
 
-list.addEventListener('click', (e) => removeTask(e))
 window.addEventListener('load', () => {
 	updateTaskOnLoad()
 	changeAppTheme('dark')
 })
 
-addTaskButton.addEventListener('click', (e) => initialCreateTask(e))
 formInput.addEventListener('keydown', removeEmptyErrorHandling)
 formInput.addEventListener('blur', removeEmptyErrorHandling)
 list.addEventListener('change', (e) => controlItemChecking(e));
-toggleTheme.addEventListener('click', () => changeAppTheme('light'))
 
 export const btnUp = document.querySelector('.button-up')
-
-btnUp.addEventListener('click', () => window.scrollTo(0, 0))
+window.addEventListener('click', (e) => callClickEvents(e, clickEvents))
 window.addEventListener('scroll', showBtnUpOnScroll)
 window.addEventListener('keydown', focusFormInput)
