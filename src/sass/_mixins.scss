@@ -2,5 +2,9 @@
 	background-image: image-set(url('./images/#{$imageName}.avif') type('image/avif'),
 		('./images/#{$imageName}.webp') type('image/webp'),
 		('./images/#{$imageName}.jpg') type('image/jpg'));
+}
 
+@mixin sizes($width, $height) {
+	width: $width;
+	height: $height;
 }
