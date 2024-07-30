@@ -5,6 +5,7 @@ import { removeTask } from './js/removeTask';
 import { updateTaskOnLoad } from './js/updateTaskOnLoad';
 import { changeAppTheme } from './js/changeTheme/changeAppTheme';
 import { removeEmptyErrorHandling } from './js/inputField/removeEmptyErrorHandling';
+import { showBtnUpOnScroll } from './js/showBtnUpOnScroll';
 
 export const addTaskButton = document.querySelector('.form__task-btn');
 export const list = document.querySelector('.form__list');
@@ -22,17 +23,8 @@ formInput.addEventListener('blur', removeEmptyErrorHandling)
 list.addEventListener('change', (e) => controlItemChecking(e));
 toggleTheme.addEventListener('click', () => changeAppTheme('light'))
 
-const btnUp = document.querySelector('.button-up')
+export const btnUp = document.querySelector('.button-up')
 
 btnUp.addEventListener('click', () => window.scrollTo(0, 0))
-
-window.addEventListener('scroll', function () {
-	if (this.scrollY >= 232) {
-		btnUp.style.display = 'block'
-	}
-	else {
-		btnUp.style.display = 'none'
-	}
-})
-
+window.addEventListener('scroll', showBtnUpOnScroll)
 window.addEventListener('keydown', focusFormInput)
