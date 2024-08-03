@@ -1,6 +1,7 @@
 @import './sass/normalize';
 @import './sass/media';
 @import './sass/mixins';
+@import './sass/template-selectors';
 
 .body {
 	@include imageSet('1');
@@ -89,11 +90,9 @@
 
 	&__label-task {
 		margin-bottom: 20px;
-		padding-bottom: 5px;
-		border-bottom: 3px solid black;
-		font-size: clamp(18px, 3vw, 22px);
-		text-align: center;
+		@extend %formHeaders;
 		cursor: pointer;
+
 
 		&_theme-dark {
 			border-bottom: 3px solid #fff;
@@ -162,12 +161,7 @@
 
 	&__title {
 		margin-bottom: 15px;
-		padding-bottom: 5px;
-		border-bottom: 3px solid black;
-		font-size: clamp(18px, 3vw, 22px);
-		font-weight: 400;
-		text-align: center;
-		user-select: none;
+		@extend %formHeaders;
 
 		&_theme-dark {
 			border-bottom: 3px solid #fff;
