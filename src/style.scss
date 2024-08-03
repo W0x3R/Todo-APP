@@ -242,7 +242,7 @@
 
 	&__delete-list {
 		transition: all 1s;
-		@include sizes(clamp(20px, 4vw, 30px), clamp(20px, 4vw, 30px));
+		@include sizes(clamp(20px, 4vw, 26px), clamp(20px, 4vw, 26px));
 		position: absolute;
 		right: 0;
 		top: 0;
