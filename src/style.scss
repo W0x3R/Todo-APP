@@ -139,7 +139,7 @@
 	&__task-btn {
 		@include sizes(clamp(65px, 16vw, 105px), clamp(23px, 5vw, 28px));
 		border-radius: 4px;
-		font-size: clamp(14px, 3vw, 20px);
+		font-size: clamp(14px, 3vw, 19px);
 		box-shadow: 5px 5px 3px 0px #000;
 		background-color: white;
 		color: black;
