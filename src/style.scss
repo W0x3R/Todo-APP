@@ -52,8 +52,9 @@
 
 .toggle-theme {
 	position: absolute;
-	right: 30px;
-	top: 25px;
+	@include sizes(56px, 56px);
+	right: 22px;
+	top: 22px;
 
 	@include desktop {
 		position: absolute;
@@ -62,7 +63,11 @@
 	}
 
 	@include mobile {
-		@include sizes(38px, 38px)
+		@include sizes(46px, 46px);
+	}
+
+	@include smallMobile {
+		@include sizes(38px, 38px);
 	}
 
 	&_dark {
