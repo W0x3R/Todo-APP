@@ -178,6 +178,7 @@
 		font-size: clamp(16px, 2.6vw, 18.5px);
 		overflow-wrap: anywhere;
 		position: relative;
+		user-select: none;
 
 		&:not(:last-of-type) {
 			margin-bottom: 8px;
