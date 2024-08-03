@@ -38,11 +38,13 @@
 	align-items: center;
 	margin: 0 auto;
 	padding: 12px;
+	max-width: clamp(300px, 88vw, 670px);
+	min-height: 70vh;
 	background: rgb(255 255 255 / 66%);
 	border-radius: 25px;
 	box-shadow: 7px 8px 12px 0px rgb(0 0 0 / 33%);
 	border: 10px solid black;
-	min-height: 70vh;
+
 
 	@include desktop {
 		position: relative;
@@ -57,9 +59,9 @@
 
 .toggle-theme {
 	position: absolute;
-	@include sizes(56px, 56px);
 	right: 22px;
 	top: 22px;
+	@include sizes(56px, 56px);
 
 	@include desktop {
 		position: absolute;
@@ -174,18 +176,18 @@
 	}
 
 	&__list-item {
+		position: relative;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		font-size: clamp(16px, 2.6vw, 18.5px);
 		overflow-wrap: anywhere;
-		position: relative;
 		user-select: none;
 
 		&:not(:last-of-type) {
 			margin-bottom: 8px;
-			border-bottom: 2px solid #000;
 			padding-bottom: 10px;
+			border-bottom: 2px solid #000;
 		}
 
 		&_theme-dark {
@@ -250,11 +252,11 @@
 	}
 
 	&__delete-list {
-		transition: all 1s;
-		@include sizes(clamp(20px, 4vw, 26px), clamp(20px, 4vw, 26px));
 		position: absolute;
 		right: 0;
 		top: 0;
+		@include sizes(clamp(20px, 4vw, 26px), clamp(20px, 4vw, 26px));
+		transition: all 1s;
 
 		@include hoverOrActive {
 			transform: rotate(90deg);
@@ -263,11 +265,11 @@
 }
 
 .button-up {
-	display: none;
-	@include sizes(40px, 40px);
 	position: fixed;
 	bottom: 1%;
 	right: 50%;
+	display: none;
+	@include sizes(40px, 40px);
 	transform: translate(50%, 0);
 	border-radius: 10px;
 	opacity: 0.8;
