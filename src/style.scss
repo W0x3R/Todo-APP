@@ -197,8 +197,12 @@
 		position: relative;
 		display: flex;
 		padding-left: 30px;
-		margin-right: 30px;
+		margin-right: 32px;
 		cursor: pointer;
+
+		@include mobile {
+			padding-left: 27px;
+		}
 	}
 
 	&__list-checkbox {
