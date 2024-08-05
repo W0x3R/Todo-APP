@@ -32,6 +32,14 @@
 	@include smallMobile {
 		margin-block: 25px;
 	}
+
+	&__title {
+		padding-top: 10px;
+		margin-bottom: 20px;
+		font-size: clamp(32px, 5vw, 41px);
+		font-weight: 500;
+		user-select: none;
+	}
 }
 
 .inner {
@@ -58,15 +66,6 @@
 		background: rgb(117 117 117 / 95%);
 	}
 }
-
-.title {
-	padding-top: 10px;
-	margin-bottom: 20px;
-	font-size: clamp(32px, 5vw, 41px);
-	font-weight: 500;
-	user-select: none;
-}
-
 
 .button-up {
 	position: fixed;
