@@ -5,6 +5,7 @@
 @import './sass/fonts';
 @import './sass/components/taskForm';
 @import './sass/components/toggleThemeIcon';
+@import './sass/components/btnScrollUp';
 
 .body {
 	@include imageSet('1');
@@ -64,32 +65,5 @@
 		color: white;
 		border: 10px solid #fff;
 		background: rgb(117 117 117 / 95%);
-	}
-}
-
-.button-up {
-	position: fixed;
-	bottom: 1%;
-	right: 50%;
-	display: none;
-	@include sizes(40px, 40px);
-	transform: translate(50%, 0);
-	border-radius: 10px;
-	opacity: 0.8;
-
-	&-rect {
-		fill: #000;
-
-		&_theme-dark {
-			fill: #fff;
-		}
-	}
-
-	&-arrow {
-		fill: #fff;
-
-		&_theme-dark {
-			fill: #000;
-		}
 	}
 }
