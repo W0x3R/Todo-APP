@@ -1,0 +1,10 @@
+.body {
+	@include imageSet('1');
+	background-repeat: repeat;
+	background-size: contain;
+	font-family: 'Roboto';
+
+	&_theme-dark {
+		@include imageSet('2')
+	}
+}

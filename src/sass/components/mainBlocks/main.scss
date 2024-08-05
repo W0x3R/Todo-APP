@@ -1,0 +1,16 @@
+.main {
+	flex: 1;
+	margin-block: 35px;
+
+	@include smallMobile {
+		margin-block: 25px;
+	}
+
+	&__title {
+		padding-top: 10px;
+		margin-bottom: 20px;
+		font-size: clamp(32px, 5vw, 41px);
+		font-weight: 500;
+		user-select: none;
+	}
+}

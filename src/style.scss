@@ -3,67 +3,10 @@
 @import './sass/mixins';
 @import './sass/template-selectors';
 @import './sass/fonts';
+@import './sass/components/mainBlocks/body';
+@import './sass/components/mainBlocks/container';
+@import './sass/components/mainBlocks/inner';
+@import './sass/components/mainBlocks/main';
 @import './sass/components/taskForm';
 @import './sass/components/toggleThemeIcon';
 @import './sass/components/btnScrollUp';
-
-.body {
-	@include imageSet('1');
-	background-repeat: repeat;
-	background-size: contain;
-	font-family: 'Roboto';
-
-	&_theme-dark {
-		@include imageSet('2')
-	}
-}
-
-.container {
-	display: flex;
-	flex-direction: column;
-	margin: 0 auto;
-	max-width: 2000px;
-	min-height: 100%;
-}
-
-.main {
-	flex: 1;
-	margin-block: 35px;
-
-	@include smallMobile {
-		margin-block: 25px;
-	}
-
-	&__title {
-		padding-top: 10px;
-		margin-bottom: 20px;
-		font-size: clamp(32px, 5vw, 41px);
-		font-weight: 500;
-		user-select: none;
-	}
-}
-
-.inner {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	margin: 0 auto;
-	padding: 12px;
-	max-width: clamp(300px, 88vw, 670px);
-	min-height: 70vh;
-	background: rgb(255 255 255 / 66%);
-	border-radius: 25px;
-	box-shadow: 7px 8px 12px 0px rgb(0 0 0 / 33%);
-	border: 10px solid black;
-
-
-	@include desktop {
-		position: relative;
-	}
-
-	&_theme-dark {
-		color: white;
-		border: 10px solid #fff;
-		background: rgb(117 117 117 / 95%);
-	}
-}
