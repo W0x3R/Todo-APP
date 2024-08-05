@@ -3,6 +3,7 @@
 @import './sass/mixins';
 @import './sass/template-selectors';
 @import './sass/fonts';
+@import './sass/components/toggleThemeIcon';
 
 .body {
 	@include imageSet('1');
@@ -54,31 +55,6 @@
 		color: white;
 		border: 10px solid #fff;
 		background: rgb(117 117 117 / 95%);
-	}
-}
-
-.toggle-theme {
-	position: absolute;
-	right: 22px;
-	top: 22px;
-	@include sizes(56px, 56px);
-
-	@include desktop {
-		position: absolute;
-		right: 12px;
-		top: 12px;
-	}
-
-	@include mobile {
-		@include sizes(46px, 46px);
-	}
-
-	@include smallMobile {
-		@include sizes(38px, 38px);
-	}
-
-	&_dark {
-		fill: rgb(255, 255, 255)
 	}
 }
 
