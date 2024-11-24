@@ -1,0 +1,27 @@
+@use '../media';
+@use '../mixins';
+
+.toggle-theme {
+	position: absolute;
+	right: 22px;
+	top: 22px;
+	@include mixins.sizes(56px, 56px);
+
+	@include media.desktop {
+		position: absolute;
+		right: 12px;
+		top: 12px;
+	}
+
+	@include media.mobile {
+		@include mixins.sizes(46px, 46px);
+	}
+
+	@include media.smallMobile {
+		@include mixins.sizes(38px, 38px);
+	}
+
+	&_dark {
+		fill: rgb(255, 255, 255)
+	}
+}

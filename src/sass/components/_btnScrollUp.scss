@@ -1,15 +1,18 @@
+@use '../media';
+@use '../mixins';
+
 .button-up {
 	position: fixed;
 	bottom: 1%;
 	right: 50%;
 	display: none;
-	@include sizes(40px, 40px);
+	@include mixins.sizes(40px, 40px);
 	transform: translate(50%, 0);
 	border-radius: 10px;
 	opacity: 0.8;
 
-	@include smallMobile {
-		@include sizes(36px, 36px);
+	@include media.smallMobile {
+		@include mixins.sizes(36px, 36px);
 	}
 
 	&-rect {

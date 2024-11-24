@@ -1,3 +1,5 @@
+@use '../../media';
+
 .inner {
 	display: flex;
 	flex-direction: column;
@@ -11,14 +13,13 @@
 	box-shadow: 7px 8px 12px 0px rgb(0 0 0 / 33%);
 	border: 10px solid black;
 
-
-	@include desktop {
+	@include media.desktop {
 		position: relative;
 	}
 
 	&_theme-dark {
 		color: white;
-		border: 10px solid #fff;
+		border: 10px solid rgb(255, 255, 255);
 		background: rgb(117 117 117 / 95%);
 	}
 }

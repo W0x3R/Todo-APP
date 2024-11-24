@@ -1,8 +1,10 @@
+@use '../../media';
+
 .main {
 	flex: 1;
 	margin-block: 35px;
 
-	@include smallMobile {
+	@include media.smallMobile {
 		margin-block: 25px;
 	}
 
